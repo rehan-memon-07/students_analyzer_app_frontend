@@ -1,14 +1,26 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:student_analyzer_app/features/resume/domain/entities/resume_entities.dart';
+import '../../domain/entities/resume_entities.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final resumeRepositoryProvider = Provider<ResumeRepository>(
+      (ref) => ApiResumeRepository(),
+);
 
 abstract class ResumeRepository {
   Future<String> initSession();
+
   Future<String> uploadResume({
     required String sessionToken,
     required File file,
   });
+
+  Future<void> extractText({
+    required String sessionToken,
+    required String resumeId,
+  });
+
   Future<ResumeAnalysis> analyzeResume({
     required String sessionToken,
     required String resumeId,
@@ -19,13 +31,27 @@ class ApiResumeRepository implements ResumeRepository {
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: 'http://10.60.248.60:8080',
-      connectTimeout: const Duration(seconds: 15),
+      connectTimeout: const Duration(seconds: 20),
       receiveTimeout: const Duration(seconds: 30),
+      validateStatus: (status) => status != null && status < 500,
     ),
   );
 
   // ======================
-  // 1️⃣ INIT SESSION
+  // SAFE RESPONSE NORMALIZER
+  // ======================
+  Map<String, dynamic> _normalize(dynamic data) {
+    if (data is Map) {
+      return Map<String, dynamic>.from(data);
+    }
+    if (data is String) {
+      return jsonDecode(data) as Map<String, dynamic>;
+    }
+    throw Exception('Invalid backend response format');
+  }
+
+  // ======================
+  // INIT SESSION
   // ======================
   @override
   Future<String> initSession() async {
@@ -36,12 +62,11 @@ class ApiResumeRepository implements ResumeRepository {
         "email": "test@gmail.com",
       },
     );
-
     return response.data.toString();
   }
 
   // ======================
-  // 2️⃣ UPLOAD RESUME
+  // UPLOAD RESUME
   // ======================
   @override
   Future<String> uploadResume({
@@ -62,11 +87,43 @@ class ApiResumeRepository implements ResumeRepository {
       options: Options(contentType: 'multipart/form-data'),
     );
 
-    return response.data.toString();
+    final root = _normalize(response.data);
+
+    if (root['success'] != true) {
+      throw Exception(root['message'] ?? 'Upload failed');
+    }
+
+    return root['data'].toString();
   }
 
   // ======================
-  // 3️⃣ ANALYZE RESUME (🔥 FINAL FIX)
+  // EXTRACT TEXT (MANDATORY)
+  // ======================
+  @override
+  Future<void> extractText({
+    required String sessionToken,
+    required String resumeId,
+  }) async {
+    final response = await _dio.post(
+      '/resume/extract-text',
+      data: {
+        'sessionToken': sessionToken,
+        'resumeId': resumeId,
+      },
+      options: Options(
+        contentType: Headers.formUrlEncodedContentType,
+      ),
+    );
+
+    final root = _normalize(response.data);
+
+    if (root['success'] != true) {
+      throw Exception(root['message'] ?? 'Text extraction failed');
+    }
+  }
+
+  // ======================
+  // ANALYZE RESUME (SAFE)
   // ======================
   @override
   Future<ResumeAnalysis> analyzeResume({
@@ -84,39 +141,36 @@ class ApiResumeRepository implements ResumeRepository {
       ),
     );
 
-    /// 🔥 THIS IS THE REAL FIX
-    final Map<String, dynamic> json = response.data is String
-        ? jsonDecode(response.data)
-        : Map<String, dynamic>.from(response.data);
+    final root = _normalize(response.data);
 
-    final List criteriaList = json['criteria'] as List;
+    if (root['success'] != true) {
+      throw Exception(root['message'] ?? 'Analysis failed');
+    }
 
-    final categoryScores = criteriaList.map((item) {
-      final map = Map<String, dynamic>.from(item);
-      return CategoryScore(
-        category: map['criterion'].toString(),
-        score: (map['score'] as num).toDouble(),
-        description: map['feedback'].toString(),
-      );
-    }).toList();
-
-    final first = Map<String, dynamic>.from(criteriaList.first);
+    final json = Map<String, dynamic>.from(root['data']);
+    final criteria = json['criteria'] as List;
 
     return ResumeAnalysis(
       resumeId: resumeId,
       totalScore: (json['overallScore'] as num).toDouble(),
-      scoreStatus: json['finalVerdict'].toString(),
+      scoreStatus: json['finalVerdict'],
       starRating: ((json['overallScore'] as num) / 20).round(),
-      keyStrength: first['feedback'].toString(),
-      keyImprovement: first['improvement'].toString(),
-      categoryScores: categoryScores,
+      keyStrength: criteria.first['feedback'],
+      keyImprovement: criteria.first['improvement'],
+      categoryScores: criteria.map((c) {
+        return CategoryScore(
+          category: c['criterion'],
+          score: (c['score'] as num).toDouble(),
+          description: c['feedback'],
+        );
+      }).toList(),
       recommendations: (json['hardTruths'] as List)
           .asMap()
           .entries
           .map(
             (e) => Recommendation(
           title: 'Hard Truth ${e.key + 1}',
-          description: e.value.toString(),
+          description: e.value,
           priority: e.key + 1,
         ),
       )

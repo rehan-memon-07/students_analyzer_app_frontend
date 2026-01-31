@@ -5,6 +5,8 @@ import 'package:student_analyzer_app/core/theme/app_theme.dart';
 import 'package:student_analyzer_app/core/utils/responsive_helper.dart';
 import 'package:student_analyzer_app/features/writing/domain/entities/writing_entities.dart';
 import 'package:student_analyzer_app/features/writing/presentation/providers/writing_provider.dart';
+import '../../../session/session_provider.dart';
+
 
 class WritingAssistantPage extends ConsumerStatefulWidget {
   const WritingAssistantPage({Key? key}) : super(key: key);
@@ -43,20 +45,40 @@ class _WritingAssistantPageState extends ConsumerState<WritingAssistantPage>
       return;
     }
 
-    ref.read(isGeneratingProvider.notifier).state = true;
+    try {
+      ref.read(isGeneratingProvider.notifier).state = true;
 
-    final repository = ref.read(writingRepositoryProvider);
-    final request = WritingRequest(
-      type: _selectedType,
-      context: _contextController.text,
-      tone: _selectedTone,
-      recipientRole: 'Hiring Manager', // TODO: Make configurable
-    );
+      final repository = ref.read(writingRepositoryProvider);
 
-    final content = await repository.generateContent(request);
-    ref.read(generatedContentProvider.notifier).state = content;
-    ref.read(isGeneratingProvider.notifier).state = false;
+      final sessionToken =
+      await ref.read(ensureSessionProvider.future);
+
+      final request = WritingRequest(
+        type: _selectedType,
+        context: _contextController.text,
+        tone: _selectedTone,
+        recipientRole: 'Hiring Manager',
+      );
+
+      final content = await repository.generateContent(
+        request: request,
+        sessionToken: sessionToken,
+      );
+
+      ref.read(generatedContentProvider.notifier).state = content;
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } finally {
+      ref.read(isGeneratingProvider.notifier).state = false;
+    }
   }
+
+
 
   @override
   Widget build(BuildContext context) {

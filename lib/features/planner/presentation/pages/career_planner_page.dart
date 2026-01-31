@@ -12,7 +12,7 @@ class CareerPlannerPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final responsivePadding = ResponsiveHelper.getResponsivePadding(context);
     final isMobile = ResponsiveHelper.isMobile(context);
-    final skillsAsync = ref.watch(availableSkillsProvider);
+
     final selectedSkill = ref.watch(selectedSkillProvider);
     final pathAsync = ref.watch(careerPathProvider);
 
@@ -63,47 +63,7 @@ class CareerPlannerPage extends ConsumerWidget {
               SizedBox(
                 height: ResponsiveHelper.getResponsiveSpacing(context, 12),
               ),
-              skillsAsync.when(
-                data: (skills) => Wrap(
-                  spacing: ResponsiveHelper.getResponsiveSpacing(context, 8),
-                  runSpacing: ResponsiveHelper.getResponsiveSpacing(context, 8),
-                  children: skills.map((skill) {
-                    final isSelected = selectedSkill == skill;
-                    return GestureDetector(
-                      onTap: () =>
-                          ref.read(selectedSkillProvider.notifier).state = skill,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: ResponsiveHelper.getResponsiveSpacing(context, 16),
-                          vertical: ResponsiveHelper.getResponsiveSpacing(context, 8),
-                        ),
-                        decoration: BoxDecoration(
-                          color: isSelected ? AppTheme.primaryBlue : Colors.white,
-                          border: Border.all(
-                            color: isSelected
-                                ? AppTheme.primaryBlue
-                                : AppTheme.borderGray,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          skill,
-                          style:
-                              Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: isSelected ? Colors.white : AppTheme.textDark,
-                            fontWeight: FontWeight.w600,
-                            fontSize: ResponsiveHelper.getResponsiveFontSize(
-                                context, 13),
-                          ),
-                        ),
-                      ),
-                    );
-                  }).toList(),
-                ),
-                loading: () => const CircularProgressIndicator(),
-                error: (err, _) => Text('Error: $err'),
-              ),
+
               SizedBox(
                 height: ResponsiveHelper.getResponsiveSpacing(context, 32),
               ),
