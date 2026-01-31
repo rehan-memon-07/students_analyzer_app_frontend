@@ -55,10 +55,10 @@ final appRouterProvider = Provider((ref) {
         path: '/resume/upload',
         builder: (context, state) => const ResumeUploadPage(),
       ),
-      GoRoute(
-        path: '/resume/analysis',
-        builder: (context, state) => const ResumeAnalysisPage(),
-      ),
+      //GoRoute(
+       // path: '/resume/analysis',
+        //builder: (context, state) => const ResumeAnalysisPage(),
+      //),
 
       // Interview Flow
       GoRoute(

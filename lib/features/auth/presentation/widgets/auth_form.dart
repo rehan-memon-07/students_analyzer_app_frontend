@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:student_analyzer_app/core/constants/strings.dart';
 import 'package:student_analyzer_app/core/theme/app_theme.dart';
 
+import '../providers/auth_provider.dart';
+
 class AuthForm extends ConsumerStatefulWidget {
   final bool isLogin;
 
@@ -51,12 +53,26 @@ class _AuthFormState extends ConsumerState<AuthForm> {
     });
   }
 
-  void _handleGoogleAuth() {
-    // TODO: Integrate Google Sign-In package
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Google Auth - TODO: Implement with real Google Sign-In')),
-    );
+  Future<void> _handleGoogleAuth() async {
+    setState(() => _isLoading = true);
+
+    try {
+      await ref.read(authServiceProvider).signInWithGoogle();
+
+      if (!mounted) return;
+
+      context.go('/dashboard'); // navigate after success
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString())),
+      );
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
   }
+
 
   void _handleCollegeAuth() {
     // TODO: Integrate College ID authentication
@@ -171,11 +187,23 @@ class _AuthFormState extends ConsumerState<AuthForm> {
         SizedBox(
           width: double.infinity,
           child: OutlinedButton.icon(
-            icon: Icon(Icons.g_mobiledata, color: AppTheme.primaryBlue),
+            icon: Icon(
+              Icons.g_mobiledata,
+              color: AppTheme.primaryBlue,
+              size: 28,
+            ),
             label: const Text('Continue with Google'),
             onPressed: _handleGoogleAuth,
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              side: BorderSide(color: AppTheme.primaryBlue),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
           ),
         ),
+
         const SizedBox(height: 12),
 
         // College ID Auth Button

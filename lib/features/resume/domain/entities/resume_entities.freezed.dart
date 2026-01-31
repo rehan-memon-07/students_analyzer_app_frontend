@@ -345,7 +345,7 @@ abstract class _ResumeAnalysis implements ResumeAnalysis {
 mixin _$CategoryScore {
   String get category =>
       throw _privateConstructorUsedError; // 'Formatting', 'Content', 'Skills', 'ATS', etc.
-  int get score => throw _privateConstructorUsedError; // 0-10
+  double get score => throw _privateConstructorUsedError; // 0-10
   String get description => throw _privateConstructorUsedError;
 
   /// Create a copy of CategoryScore
@@ -362,7 +362,7 @@ abstract class $CategoryScoreCopyWith<$Res> {
     $Res Function(CategoryScore) then,
   ) = _$CategoryScoreCopyWithImpl<$Res, CategoryScore>;
   @useResult
-  $Res call({String category, int score, String description});
+  $Res call({String category, double score, String description});
 }
 
 /// @nodoc
@@ -393,7 +393,7 @@ class _$CategoryScoreCopyWithImpl<$Res, $Val extends CategoryScore>
             score: null == score
                 ? _value.score
                 : score // ignore: cast_nullable_to_non_nullable
-                      as int,
+                      as double,
             description: null == description
                 ? _value.description
                 : description // ignore: cast_nullable_to_non_nullable
@@ -413,7 +413,7 @@ abstract class _$$CategoryScoreImplCopyWith<$Res>
   ) = __$$CategoryScoreImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String category, int score, String description});
+  $Res call({String category, double score, String description});
 }
 
 /// @nodoc
@@ -443,7 +443,7 @@ class __$$CategoryScoreImplCopyWithImpl<$Res>
         score: null == score
             ? _value.score
             : score // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as double,
         description: null == description
             ? _value.description
             : description // ignore: cast_nullable_to_non_nullable
@@ -466,7 +466,7 @@ class _$CategoryScoreImpl implements _CategoryScore {
   final String category;
   // 'Formatting', 'Content', 'Skills', 'ATS', etc.
   @override
-  final int score;
+  final double score;
   // 0-10
   @override
   final String description;
@@ -503,14 +503,14 @@ class _$CategoryScoreImpl implements _CategoryScore {
 abstract class _CategoryScore implements CategoryScore {
   const factory _CategoryScore({
     required final String category,
-    required final int score,
+    required final double score,
     required final String description,
   }) = _$CategoryScoreImpl;
 
   @override
   String get category; // 'Formatting', 'Content', 'Skills', 'ATS', etc.
   @override
-  int get score; // 0-10
+  double get score; // 0-10
   @override
   String get description;
 

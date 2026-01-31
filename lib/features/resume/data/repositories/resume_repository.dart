@@ -1,75 +1,126 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:student_analyzer_app/features/resume/domain/entities/resume_entities.dart';
 
-/// Resume Repository interface
 abstract class ResumeRepository {
-  Future<UploadedResume> uploadResume(String filePath, String fileName);
-  Future<ResumeAnalysis> analyzeResume(String resumeId);
+  Future<String> initSession();
+  Future<String> uploadResume({
+    required String sessionToken,
+    required File file,
+  });
+  Future<ResumeAnalysis> analyzeResume({
+    required String sessionToken,
+    required String resumeId,
+  });
 }
 
-/// Mock implementation with hardcoded data
-class MockResumeRepository implements ResumeRepository {
+class ApiResumeRepository implements ResumeRepository {
+  final Dio _dio = Dio(
+    BaseOptions(
+      baseUrl: 'http://10.60.248.60:8080',
+      connectTimeout: const Duration(seconds: 15),
+      receiveTimeout: const Duration(seconds: 30),
+    ),
+  );
+
+  // ======================
+  // 1️⃣ INIT SESSION
+  // ======================
   @override
-  Future<UploadedResume> uploadResume(String filePath, String fileName) async {
-    await Future.delayed(const Duration(seconds: 2)); // Simulate upload
-    
-    return UploadedResume(
-      id: 'resume_${DateTime.now().millisecondsSinceEpoch}',
-      fileName: fileName,
-      uploadedAt: DateTime.now(),
-      fileSizeKB: 245.5,
+  Future<String> initSession() async {
+    final response = await _dio.post(
+      '/session/init',
+      data: {
+        "externalUserId": "test_user_123",
+        "email": "test@gmail.com",
+      },
     );
+
+    return response.data.toString();
   }
 
+  // ======================
+  // 2️⃣ UPLOAD RESUME
+  // ======================
   @override
-  Future<ResumeAnalysis> analyzeResume(String resumeId) async {
-    await Future.delayed(const Duration(seconds: 1)); // Simulate analysis
-    
+  Future<String> uploadResume({
+    required String sessionToken,
+    required File file,
+  }) async {
+    final formData = FormData.fromMap({
+      'sessionToken': sessionToken,
+      'file': await MultipartFile.fromFile(
+        file.path,
+        filename: file.path.split('/').last,
+      ),
+    });
+
+    final response = await _dio.post(
+      '/resume/upload',
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+
+    return response.data.toString();
+  }
+
+  // ======================
+  // 3️⃣ ANALYZE RESUME (🔥 FINAL FIX)
+  // ======================
+  @override
+  Future<ResumeAnalysis> analyzeResume({
+    required String sessionToken,
+    required String resumeId,
+  }) async {
+    final response = await _dio.post(
+      '/resume/analyze',
+      data: {
+        'sessionToken': sessionToken,
+        'resumeId': resumeId,
+      },
+      options: Options(
+        contentType: Headers.formUrlEncodedContentType,
+      ),
+    );
+
+    /// 🔥 THIS IS THE REAL FIX
+    final Map<String, dynamic> json = response.data is String
+        ? jsonDecode(response.data)
+        : Map<String, dynamic>.from(response.data);
+
+    final List criteriaList = json['criteria'] as List;
+
+    final categoryScores = criteriaList.map((item) {
+      final map = Map<String, dynamic>.from(item);
+      return CategoryScore(
+        category: map['criterion'].toString(),
+        score: (map['score'] as num).toDouble(),
+        description: map['feedback'].toString(),
+      );
+    }).toList();
+
+    final first = Map<String, dynamic>.from(criteriaList.first);
+
     return ResumeAnalysis(
       resumeId: resumeId,
-      totalScore: 85,
-      scoreStatus: 'STRONG PROFILE',
-      starRating: 4,
-      categoryScores: [
-        const CategoryScore(
-          category: 'Formatting',
-          score: 9,
-          description: 'Clean layout and professional appearance.',
+      totalScore: (json['overallScore'] as num).toDouble(),
+      scoreStatus: json['finalVerdict'].toString(),
+      starRating: ((json['overallScore'] as num) / 20).round(),
+      keyStrength: first['feedback'].toString(),
+      keyImprovement: first['improvement'].toString(),
+      categoryScores: categoryScores,
+      recommendations: (json['hardTruths'] as List)
+          .asMap()
+          .entries
+          .map(
+            (e) => Recommendation(
+          title: 'Hard Truth ${e.key + 1}',
+          description: e.value.toString(),
+          priority: e.key + 1,
         ),
-        const CategoryScore(
-          category: 'Clarity',
-          score: 8,
-          description: 'Content is clear but could use more specificity.',
-        ),
-        const CategoryScore(
-          category: 'Skills',
-          score: 7,
-          description: 'Good technical skills highlighted.',
-        ),
-        const CategoryScore(
-          category: 'ATS',
-          score: 8,
-          description: 'Optimized for Applicant Tracking Systems.',
-        ),
-      ],
-      keyStrength: 'Excellent pacing and clear structure in your answers.',
-      keyImprovement: 'Add more quantifiable results and metrics.',
-      recommendations: [
-        const Recommendation(
-          title: 'Add Quantifiable Results',
-          description: 'Include specific numbers, percentages, or metrics to showcase impact.',
-          priority: 1,
-        ),
-        const Recommendation(
-          title: 'Improve Action Verbs',
-          description: 'Use stronger action verbs at the beginning of bullet points.',
-          priority: 2,
-        ),
-        const Recommendation(
-          title: 'Optimize for ATS',
-          description: 'Include keywords from job descriptions to improve parsing.',
-          priority: 3,
-        ),
-      ],
+      )
+          .toList(),
     );
   }
 }

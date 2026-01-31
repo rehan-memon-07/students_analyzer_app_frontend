@@ -16,12 +16,13 @@ class _SplashPageState extends ConsumerState<SplashPage>
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
+  late Animation<double> _scaleAnimation;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 1800),
       vsync: this,
     );
 
@@ -29,8 +30,12 @@ class _SplashPageState extends ConsumerState<SplashPage>
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
 
-    _slideAnimation = Tween<Offset>(begin: const Offset(0, 0.3), end: Offset.zero)
+    _slideAnimation = Tween<Offset>(begin: const Offset(0, 0.4), end: Offset.zero)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
+
+    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
+    );
 
     _controller.forward();
     Future.delayed(const Duration(seconds: 3), _navigateNext);
@@ -48,9 +53,10 @@ class _SplashPageState extends ConsumerState<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-    final deviceType = ResponsiveHelper.getDeviceType(context);
-    final iconSize = ResponsiveHelper.getResponsiveFontSize(context, 48);
-    final containerSize = ResponsiveHelper.getResponsiveFontSize(context, 80);
+    final isMobile = ResponsiveHelper.isMobile(context);
+    final containerSize = ResponsiveHelper.getResponsiveFontSize(context, 100);
+    final titleSize = ResponsiveHelper.getResponsiveFontSize(context, 48);
+    final subtitleSize = ResponsiveHelper.getResponsiveFontSize(context, 18);
 
     return Scaffold(
       body: Container(
@@ -60,91 +66,96 @@ class _SplashPageState extends ConsumerState<SplashPage>
             end: Alignment.bottomRight,
             colors: [
               AppTheme.primaryBlue,
-              AppTheme.primaryBlue.withOpacity(0.8),
+              AppTheme.primaryBlue.withOpacity(0.7),
             ],
           ),
         ),
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FadeTransition(
-                  opacity: _fadeAnimation,
-                  child: SlideTransition(
-                    position: _slideAnimation,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: ResponsiveHelper.getResponsivePadding(context).left,
+              ),
+              child: FadeTransition(
+                opacity: _fadeAnimation,
+                child: SlideTransition(
+                  position: _slideAnimation,
+                  child: ScaleTransition(
+                    scale: _scaleAnimation,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // Logo Container
                         Container(
                           width: containerSize,
                           height: containerSize,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(
-                              ResponsiveHelper.getResponsiveFontSize(context, 20),
+                              ResponsiveHelper.getResponsiveFontSize(context, 28),
                             ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                blurRadius: 30,
+                                offset: const Offset(0, 10),
+                              ),
+                            ],
                           ),
                           child: Center(
                             child: Icon(
                               Icons.trending_up,
-                              size: iconSize,
+                              size: ResponsiveHelper.getResponsiveFontSize(context, 56),
                               color: AppTheme.primaryGreen,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: ResponsiveHelper.getResponsiveSpacing(context, 24),
+                          height: ResponsiveHelper.getResponsiveSpacing(context, 48),
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: ResponsiveHelper.getResponsivePadding(context).left,
+                        // Main Title
+                        Text(
+                          'Your Career,',
+                          style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                            color: Colors.white,
+                            fontSize: titleSize,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: -0.5,
                           ),
-                          child: Text(
-                            'Your Career,',
-                            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                              color: Colors.white,
-                              fontSize:
-                                  ResponsiveHelper.getResponsiveFontSize(context, 32),
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: ResponsiveHelper.getResponsivePadding(context).left,
-                          ),
-                          child: Text(
-                            'Accelerated.',
-                            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                              color: Colors.white,
-                              fontSize:
-                                  ResponsiveHelper.getResponsiveFontSize(context, 32),
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
+                          textAlign: TextAlign.center,
                         ),
                         SizedBox(
-                          height: ResponsiveHelper.getResponsiveSpacing(context, 12),
+                          height: ResponsiveHelper.getResponsiveSpacing(context, 4),
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: ResponsiveHelper.getResponsivePadding(context).left,
+                        Text(
+                          'Accelerated.',
+                          style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                            color: Colors.white,
+                            fontSize: titleSize,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: -0.5,
                           ),
-                          child: Text(
-                            'Platform for Students',
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: Colors.white70,
-                              fontSize:
-                                  ResponsiveHelper.getResponsiveFontSize(context, 16),
-                            ),
-                            textAlign: TextAlign.center,
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(
+                          height: ResponsiveHelper.getResponsiveSpacing(context, 16),
+                        ),
+                        // Subtitle
+                        Text(
+                          'Platform for Students',
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: subtitleSize,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 0.3,
                           ),
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ),
         ),

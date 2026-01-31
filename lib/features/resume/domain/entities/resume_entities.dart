@@ -20,7 +20,7 @@ class ResumeAnalysis with _$ResumeAnalysis {
 class CategoryScore with _$CategoryScore {
   const factory CategoryScore({
     required String category, // 'Formatting', 'Content', 'Skills', 'ATS', etc.
-    required int score, // 0-10
+    required double score, // 0-10
     required String description,
   }) = _CategoryScore;
 }

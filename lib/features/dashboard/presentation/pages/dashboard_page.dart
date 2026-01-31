@@ -17,7 +17,7 @@ class DashboardPage extends ConsumerWidget {
     final weeklyStats = ref.watch(weeklyStatsProvider);
     final isMobile = ResponsiveHelper.isMobile(context);
     final gridColumns = ResponsiveHelper.getGridColumns(context);
-    final horizontalPadding = ResponsiveHelper.getResponsivePadding(context).left;
+    final responsivePadding = ResponsiveHelper.getResponsivePadding(context);
 
     return Scaffold(
       body: userAsync.when(
@@ -25,22 +25,54 @@ class DashboardPage extends ConsumerWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                // Header with greeting and avatar
+                // Enhanced Header with greeting and avatar
                 DashboardHeader(user: user),
                 Padding(
-                  padding: EdgeInsets.all(horizontalPadding),
+                  padding: responsivePadding,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Weekly Progress Card
+                      SizedBox(
+                        height: ResponsiveHelper.getResponsiveSpacing(context, 8),
+                      ),
+                      // Section Title
+                      Text(
+                        'Your Progress',
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          fontSize:
+                          ResponsiveHelper.getResponsiveFontSize(context, 22),
+                        ),
+                      ),
+                      SizedBox(
+                        height: ResponsiveHelper.getResponsiveSpacing(context, 16),
+                      ),
+                      // Weekly Progress Card with enhanced styling
                       WeeklyProgressCard(stats: weeklyStats),
-                      const SizedBox(height: 24),
+                      SizedBox(
+                        height: ResponsiveHelper.getResponsiveSpacing(context, 32),
+                      ),
+                      // Features Section Title
+                      Text(
+                        'Learning Modules',
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          fontSize:
+                          ResponsiveHelper.getResponsiveFontSize(context, 22),
+                        ),
+                      ),
+                      SizedBox(
+                        height: ResponsiveHelper.getResponsiveSpacing(context, 16),
+                      ),
                       // Module Cards Grid - Responsive columns based on screen size
                       GridView.count(
                         crossAxisCount: gridColumns,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
+                        crossAxisSpacing:
+                        ResponsiveHelper.getResponsiveSpacing(context, 16),
+                        mainAxisSpacing:
+                        ResponsiveHelper.getResponsiveSpacing(context, 16),
                         children: [
                           DashboardCard(
                             icon: Icons.description,
@@ -72,6 +104,9 @@ class DashboardPage extends ConsumerWidget {
                           ),
                         ],
                       ),
+                      SizedBox(
+                        height: ResponsiveHelper.getResponsiveSpacing(context, 32),
+                      ),
                     ],
                   ),
                 ),
@@ -79,50 +114,97 @@ class DashboardPage extends ConsumerWidget {
             ),
           ),
         ),
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
+        loading: () => Center(
+          child: CircularProgressIndicator(
+            strokeWidth: 3,
+            valueColor: AlwaysStoppedAnimation<Color>(AppTheme.primaryBlue),
+          ),
         ),
         error: (err, stack) => Center(
-          child: Text('Error: $err'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.error_outline,
+                size: 48,
+                color: Colors.redAccent,
+              ),
+              SizedBox(
+                height: ResponsiveHelper.getResponsiveSpacing(context, 16),
+              ),
+              Text(
+                'Error loading dashboard',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              SizedBox(
+                height: ResponsiveHelper.getResponsiveSpacing(context, 8),
+              ),
+              Text(
+                err.toString(),
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: AppTheme.neutralGray,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.trending_up),
-            label: 'Score',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard),
-            label: 'Leaderboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              context.go('/dashboard');
-              break;
-            case 1:
-              context.push('/score');
-              break;
-            case 2:
-              context.push('/leaderboard');
-              break;
-            case 3:
-              context.push('/settings');
-              break;
-          }
-        },
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 16,
+              offset: const Offset(0, -4),
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: 0,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          selectedItemColor: AppTheme.primaryBlue,
+          unselectedItemColor: AppTheme.neutralGray,
+          items: [
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.home_outlined),
+              activeIcon: const Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.trending_up_outlined),
+              activeIcon: const Icon(Icons.trending_up),
+              label: 'Score',
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.leaderboard_outlined),
+              activeIcon: const Icon(Icons.leaderboard),
+              label: 'Leaderboard',
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.settings_outlined),
+              activeIcon: const Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                context.go('/dashboard');
+                break;
+              case 1:
+                context.push('/score');
+                break;
+              case 2:
+                context.push('/leaderboard');
+                break;
+              case 3:
+                context.push('/settings');
+                break;
+            }
+          },
+        ),
       ),
     );
   }
