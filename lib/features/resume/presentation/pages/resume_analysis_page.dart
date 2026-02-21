@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/resume_entities.dart';
 import 'package:student_analyzer_app/core/theme/app_theme.dart';
 import 'package:student_analyzer_app/core/utils/responsive_helper.dart';
+import 'package:student_analyzer_app/core/models/resume_model.dart';
+import 'package:student_analyzer_app/core/data/local/resume_local_datasource.dart';
 
 class ResumeAnalysisPage extends StatefulWidget {
   final ResumeAnalysis analysis;
@@ -32,6 +34,32 @@ class _ResumeAnalysisPageState extends State<ResumeAnalysisPage>
       CurvedAnimation(parent: _scoreAnimationController, curve: Curves.easeOutCubic),
     );
     _scoreAnimationController.forward();
+    _saveResumeToHive();
+  }
+  Future<void> _saveResumeToHive() async {
+    final localDataSource = ResumeLocalDataSource();
+
+    await localDataSource.saveResume(
+      ResumeModel(
+        id: "resume_${DateTime.now().millisecondsSinceEpoch}",
+        filePath: "temp_path",
+        score: widget.analysis.totalScore.toInt(),
+        parsedData: {
+          "keyStrength": widget.analysis.keyStrength,
+          "keyImprovement": widget.analysis.keyImprovement,
+          "recommendations": widget.analysis.recommendations
+              .map((e) => {
+            "title": e.title,
+            "description": e.description,
+          })
+              .toList(),
+        },
+        version: 1,
+        createdAt: DateTime.now(),
+      ),
+    );
+
+    print("Resume saved to Hive ✅");
   }
 
   @override
