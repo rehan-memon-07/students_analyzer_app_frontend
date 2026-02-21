@@ -12,8 +12,7 @@ part of 'planner_entities.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CareerPath {
@@ -22,9 +21,7 @@ mixin _$CareerPath {
   List<String> get suggestedRoles => throw _privateConstructorUsedError;
   List<LearningPath> get paths => throw _privateConstructorUsedError;
 
-  /// Create a copy of CareerPath
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CareerPathCopyWith<CareerPath> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -32,16 +29,14 @@ mixin _$CareerPath {
 /// @nodoc
 abstract class $CareerPathCopyWith<$Res> {
   factory $CareerPathCopyWith(
-    CareerPath value,
-    $Res Function(CareerPath) then,
-  ) = _$CareerPathCopyWithImpl<$Res, CareerPath>;
+          CareerPath value, $Res Function(CareerPath) then) =
+      _$CareerPathCopyWithImpl<$Res, CareerPath>;
   @useResult
-  $Res call({
-    String id,
-    String skillName,
-    List<String> suggestedRoles,
-    List<LearningPath> paths,
-  });
+  $Res call(
+      {String id,
+      String skillName,
+      List<String> suggestedRoles,
+      List<LearningPath> paths});
 }
 
 /// @nodoc
@@ -54,8 +49,6 @@ class _$CareerPathCopyWithImpl<$Res, $Val extends CareerPath>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CareerPath
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -64,27 +57,24 @@ class _$CareerPathCopyWithImpl<$Res, $Val extends CareerPath>
     Object? suggestedRoles = null,
     Object? paths = null,
   }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as String,
-            skillName: null == skillName
-                ? _value.skillName
-                : skillName // ignore: cast_nullable_to_non_nullable
-                      as String,
-            suggestedRoles: null == suggestedRoles
-                ? _value.suggestedRoles
-                : suggestedRoles // ignore: cast_nullable_to_non_nullable
-                      as List<String>,
-            paths: null == paths
-                ? _value.paths
-                : paths // ignore: cast_nullable_to_non_nullable
-                      as List<LearningPath>,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      skillName: null == skillName
+          ? _value.skillName
+          : skillName // ignore: cast_nullable_to_non_nullable
+              as String,
+      suggestedRoles: null == suggestedRoles
+          ? _value.suggestedRoles
+          : suggestedRoles // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      paths: null == paths
+          ? _value.paths
+          : paths // ignore: cast_nullable_to_non_nullable
+              as List<LearningPath>,
+    ) as $Val);
   }
 }
 
@@ -92,17 +82,15 @@ class _$CareerPathCopyWithImpl<$Res, $Val extends CareerPath>
 abstract class _$$CareerPathImplCopyWith<$Res>
     implements $CareerPathCopyWith<$Res> {
   factory _$$CareerPathImplCopyWith(
-    _$CareerPathImpl value,
-    $Res Function(_$CareerPathImpl) then,
-  ) = __$$CareerPathImplCopyWithImpl<$Res>;
+          _$CareerPathImpl value, $Res Function(_$CareerPathImpl) then) =
+      __$$CareerPathImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String id,
-    String skillName,
-    List<String> suggestedRoles,
-    List<LearningPath> paths,
-  });
+  $Res call(
+      {String id,
+      String skillName,
+      List<String> suggestedRoles,
+      List<LearningPath> paths});
 }
 
 /// @nodoc
@@ -110,12 +98,9 @@ class __$$CareerPathImplCopyWithImpl<$Res>
     extends _$CareerPathCopyWithImpl<$Res, _$CareerPathImpl>
     implements _$$CareerPathImplCopyWith<$Res> {
   __$$CareerPathImplCopyWithImpl(
-    _$CareerPathImpl _value,
-    $Res Function(_$CareerPathImpl) _then,
-  ) : super(_value, _then);
+      _$CareerPathImpl _value, $Res Function(_$CareerPathImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of CareerPath
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,39 +109,37 @@ class __$$CareerPathImplCopyWithImpl<$Res>
     Object? suggestedRoles = null,
     Object? paths = null,
   }) {
-    return _then(
-      _$CareerPathImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        skillName: null == skillName
-            ? _value.skillName
-            : skillName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        suggestedRoles: null == suggestedRoles
-            ? _value._suggestedRoles
-            : suggestedRoles // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        paths: null == paths
-            ? _value._paths
-            : paths // ignore: cast_nullable_to_non_nullable
-                  as List<LearningPath>,
-      ),
-    );
+    return _then(_$CareerPathImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      skillName: null == skillName
+          ? _value.skillName
+          : skillName // ignore: cast_nullable_to_non_nullable
+              as String,
+      suggestedRoles: null == suggestedRoles
+          ? _value._suggestedRoles
+          : suggestedRoles // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      paths: null == paths
+          ? _value._paths
+          : paths // ignore: cast_nullable_to_non_nullable
+              as List<LearningPath>,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$CareerPathImpl implements _CareerPath {
-  const _$CareerPathImpl({
-    required this.id,
-    required this.skillName,
-    required final List<String> suggestedRoles,
-    required final List<LearningPath> paths,
-  }) : _suggestedRoles = suggestedRoles,
-       _paths = paths;
+  const _$CareerPathImpl(
+      {required this.id,
+      required this.skillName,
+      required final List<String> suggestedRoles,
+      required final List<LearningPath> paths})
+      : _suggestedRoles = suggestedRoles,
+        _paths = paths;
 
   @override
   final String id;
@@ -191,25 +174,20 @@ class _$CareerPathImpl implements _CareerPath {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.skillName, skillName) ||
                 other.skillName == skillName) &&
-            const DeepCollectionEquality().equals(
-              other._suggestedRoles,
-              _suggestedRoles,
-            ) &&
+            const DeepCollectionEquality()
+                .equals(other._suggestedRoles, _suggestedRoles) &&
             const DeepCollectionEquality().equals(other._paths, _paths));
   }
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    skillName,
-    const DeepCollectionEquality().hash(_suggestedRoles),
-    const DeepCollectionEquality().hash(_paths),
-  );
+      runtimeType,
+      id,
+      skillName,
+      const DeepCollectionEquality().hash(_suggestedRoles),
+      const DeepCollectionEquality().hash(_paths));
 
-  /// Create a copy of CareerPath
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CareerPathImplCopyWith<_$CareerPathImpl> get copyWith =>
@@ -217,12 +195,11 @@ class _$CareerPathImpl implements _CareerPath {
 }
 
 abstract class _CareerPath implements CareerPath {
-  const factory _CareerPath({
-    required final String id,
-    required final String skillName,
-    required final List<String> suggestedRoles,
-    required final List<LearningPath> paths,
-  }) = _$CareerPathImpl;
+  const factory _CareerPath(
+      {required final String id,
+      required final String skillName,
+      required final List<String> suggestedRoles,
+      required final List<LearningPath> paths}) = _$CareerPathImpl;
 
   @override
   String get id;
@@ -232,11 +209,8 @@ abstract class _CareerPath implements CareerPath {
   List<String> get suggestedRoles;
   @override
   List<LearningPath> get paths;
-
-  /// Create a copy of CareerPath
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CareerPathImplCopyWith<_$CareerPathImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -247,9 +221,7 @@ mixin _$LearningPath {
   int get weeks => throw _privateConstructorUsedError;
   List<LearningModule> get modules => throw _privateConstructorUsedError;
 
-  /// Create a copy of LearningPath
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $LearningPathCopyWith<LearningPath> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -257,9 +229,8 @@ mixin _$LearningPath {
 /// @nodoc
 abstract class $LearningPathCopyWith<$Res> {
   factory $LearningPathCopyWith(
-    LearningPath value,
-    $Res Function(LearningPath) then,
-  ) = _$LearningPathCopyWithImpl<$Res, LearningPath>;
+          LearningPath value, $Res Function(LearningPath) then) =
+      _$LearningPathCopyWithImpl<$Res, LearningPath>;
   @useResult
   $Res call({String roleName, int weeks, List<LearningModule> modules});
 }
@@ -274,8 +245,6 @@ class _$LearningPathCopyWithImpl<$Res, $Val extends LearningPath>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LearningPath
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -283,23 +252,20 @@ class _$LearningPathCopyWithImpl<$Res, $Val extends LearningPath>
     Object? weeks = null,
     Object? modules = null,
   }) {
-    return _then(
-      _value.copyWith(
-            roleName: null == roleName
-                ? _value.roleName
-                : roleName // ignore: cast_nullable_to_non_nullable
-                      as String,
-            weeks: null == weeks
-                ? _value.weeks
-                : weeks // ignore: cast_nullable_to_non_nullable
-                      as int,
-            modules: null == modules
-                ? _value.modules
-                : modules // ignore: cast_nullable_to_non_nullable
-                      as List<LearningModule>,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      roleName: null == roleName
+          ? _value.roleName
+          : roleName // ignore: cast_nullable_to_non_nullable
+              as String,
+      weeks: null == weeks
+          ? _value.weeks
+          : weeks // ignore: cast_nullable_to_non_nullable
+              as int,
+      modules: null == modules
+          ? _value.modules
+          : modules // ignore: cast_nullable_to_non_nullable
+              as List<LearningModule>,
+    ) as $Val);
   }
 }
 
@@ -307,9 +273,8 @@ class _$LearningPathCopyWithImpl<$Res, $Val extends LearningPath>
 abstract class _$$LearningPathImplCopyWith<$Res>
     implements $LearningPathCopyWith<$Res> {
   factory _$$LearningPathImplCopyWith(
-    _$LearningPathImpl value,
-    $Res Function(_$LearningPathImpl) then,
-  ) = __$$LearningPathImplCopyWithImpl<$Res>;
+          _$LearningPathImpl value, $Res Function(_$LearningPathImpl) then) =
+      __$$LearningPathImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String roleName, int weeks, List<LearningModule> modules});
@@ -320,12 +285,9 @@ class __$$LearningPathImplCopyWithImpl<$Res>
     extends _$LearningPathCopyWithImpl<$Res, _$LearningPathImpl>
     implements _$$LearningPathImplCopyWith<$Res> {
   __$$LearningPathImplCopyWithImpl(
-    _$LearningPathImpl _value,
-    $Res Function(_$LearningPathImpl) _then,
-  ) : super(_value, _then);
+      _$LearningPathImpl _value, $Res Function(_$LearningPathImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of LearningPath
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -333,33 +295,31 @@ class __$$LearningPathImplCopyWithImpl<$Res>
     Object? weeks = null,
     Object? modules = null,
   }) {
-    return _then(
-      _$LearningPathImpl(
-        roleName: null == roleName
-            ? _value.roleName
-            : roleName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        weeks: null == weeks
-            ? _value.weeks
-            : weeks // ignore: cast_nullable_to_non_nullable
-                  as int,
-        modules: null == modules
-            ? _value._modules
-            : modules // ignore: cast_nullable_to_non_nullable
-                  as List<LearningModule>,
-      ),
-    );
+    return _then(_$LearningPathImpl(
+      roleName: null == roleName
+          ? _value.roleName
+          : roleName // ignore: cast_nullable_to_non_nullable
+              as String,
+      weeks: null == weeks
+          ? _value.weeks
+          : weeks // ignore: cast_nullable_to_non_nullable
+              as int,
+      modules: null == modules
+          ? _value._modules
+          : modules // ignore: cast_nullable_to_non_nullable
+              as List<LearningModule>,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$LearningPathImpl implements _LearningPath {
-  const _$LearningPathImpl({
-    required this.roleName,
-    required this.weeks,
-    required final List<LearningModule> modules,
-  }) : _modules = modules;
+  const _$LearningPathImpl(
+      {required this.roleName,
+      required this.weeks,
+      required final List<LearningModule> modules})
+      : _modules = modules;
 
   @override
   final String roleName;
@@ -390,16 +350,10 @@ class _$LearningPathImpl implements _LearningPath {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    roleName,
-    weeks,
-    const DeepCollectionEquality().hash(_modules),
-  );
+  int get hashCode => Object.hash(runtimeType, roleName, weeks,
+      const DeepCollectionEquality().hash(_modules));
 
-  /// Create a copy of LearningPath
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LearningPathImplCopyWith<_$LearningPathImpl> get copyWith =>
@@ -407,11 +361,10 @@ class _$LearningPathImpl implements _LearningPath {
 }
 
 abstract class _LearningPath implements LearningPath {
-  const factory _LearningPath({
-    required final String roleName,
-    required final int weeks,
-    required final List<LearningModule> modules,
-  }) = _$LearningPathImpl;
+  const factory _LearningPath(
+      {required final String roleName,
+      required final int weeks,
+      required final List<LearningModule> modules}) = _$LearningPathImpl;
 
   @override
   String get roleName;
@@ -419,11 +372,8 @@ abstract class _LearningPath implements LearningPath {
   int get weeks;
   @override
   List<LearningModule> get modules;
-
-  /// Create a copy of LearningPath
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$LearningPathImplCopyWith<_$LearningPathImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -434,9 +384,7 @@ mixin _$LearningModule {
   String get description => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
 
-  /// Create a copy of LearningModule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $LearningModuleCopyWith<LearningModule> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -444,9 +392,8 @@ mixin _$LearningModule {
 /// @nodoc
 abstract class $LearningModuleCopyWith<$Res> {
   factory $LearningModuleCopyWith(
-    LearningModule value,
-    $Res Function(LearningModule) then,
-  ) = _$LearningModuleCopyWithImpl<$Res, LearningModule>;
+          LearningModule value, $Res Function(LearningModule) then) =
+      _$LearningModuleCopyWithImpl<$Res, LearningModule>;
   @useResult
   $Res call({String name, String description, bool completed});
 }
@@ -461,8 +408,6 @@ class _$LearningModuleCopyWithImpl<$Res, $Val extends LearningModule>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LearningModule
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -470,33 +415,29 @@ class _$LearningModuleCopyWithImpl<$Res, $Val extends LearningModule>
     Object? description = null,
     Object? completed = null,
   }) {
-    return _then(
-      _value.copyWith(
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            description: null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String,
-            completed: null == completed
-                ? _value.completed
-                : completed // ignore: cast_nullable_to_non_nullable
-                      as bool,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: null == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$LearningModuleImplCopyWith<$Res>
     implements $LearningModuleCopyWith<$Res> {
-  factory _$$LearningModuleImplCopyWith(
-    _$LearningModuleImpl value,
-    $Res Function(_$LearningModuleImpl) then,
-  ) = __$$LearningModuleImplCopyWithImpl<$Res>;
+  factory _$$LearningModuleImplCopyWith(_$LearningModuleImpl value,
+          $Res Function(_$LearningModuleImpl) then) =
+      __$$LearningModuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String description, bool completed});
@@ -507,12 +448,9 @@ class __$$LearningModuleImplCopyWithImpl<$Res>
     extends _$LearningModuleCopyWithImpl<$Res, _$LearningModuleImpl>
     implements _$$LearningModuleImplCopyWith<$Res> {
   __$$LearningModuleImplCopyWithImpl(
-    _$LearningModuleImpl _value,
-    $Res Function(_$LearningModuleImpl) _then,
-  ) : super(_value, _then);
+      _$LearningModuleImpl _value, $Res Function(_$LearningModuleImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of LearningModule
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -520,33 +458,28 @@ class __$$LearningModuleImplCopyWithImpl<$Res>
     Object? description = null,
     Object? completed = null,
   }) {
-    return _then(
-      _$LearningModuleImpl(
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: null == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-        completed: null == completed
-            ? _value.completed
-            : completed // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
+    return _then(_$LearningModuleImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: null == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$LearningModuleImpl implements _LearningModule {
-  const _$LearningModuleImpl({
-    required this.name,
-    required this.description,
-    required this.completed,
-  });
+  const _$LearningModuleImpl(
+      {required this.name, required this.description, required this.completed});
 
   @override
   final String name;
@@ -575,24 +508,19 @@ class _$LearningModuleImpl implements _LearningModule {
   @override
   int get hashCode => Object.hash(runtimeType, name, description, completed);
 
-  /// Create a copy of LearningModule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LearningModuleImplCopyWith<_$LearningModuleImpl> get copyWith =>
       __$$LearningModuleImplCopyWithImpl<_$LearningModuleImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _LearningModule implements LearningModule {
-  const factory _LearningModule({
-    required final String name,
-    required final String description,
-    required final bool completed,
-  }) = _$LearningModuleImpl;
+  const factory _LearningModule(
+      {required final String name,
+      required final String description,
+      required final bool completed}) = _$LearningModuleImpl;
 
   @override
   String get name;
@@ -600,11 +528,8 @@ abstract class _LearningModule implements LearningModule {
   String get description;
   @override
   bool get completed;
-
-  /// Create a copy of LearningModule
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$LearningModuleImplCopyWith<_$LearningModuleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,8 +12,7 @@ part of 'user_entity.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$UserEntity {
@@ -25,9 +24,7 @@ mixin _$UserEntity {
   int get interviewScore => throw _privateConstructorUsedError;
   int get careerScore => throw _privateConstructorUsedError;
 
-  /// Create a copy of UserEntity
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $UserEntityCopyWith<UserEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -35,19 +32,17 @@ mixin _$UserEntity {
 /// @nodoc
 abstract class $UserEntityCopyWith<$Res> {
   factory $UserEntityCopyWith(
-    UserEntity value,
-    $Res Function(UserEntity) then,
-  ) = _$UserEntityCopyWithImpl<$Res, UserEntity>;
+          UserEntity value, $Res Function(UserEntity) then) =
+      _$UserEntityCopyWithImpl<$Res, UserEntity>;
   @useResult
-  $Res call({
-    String id,
-    String name,
-    String email,
-    String? avatarUrl,
-    int resumeScore,
-    int interviewScore,
-    int careerScore,
-  });
+  $Res call(
+      {String id,
+      String name,
+      String email,
+      String? avatarUrl,
+      int resumeScore,
+      int interviewScore,
+      int careerScore});
 }
 
 /// @nodoc
@@ -60,8 +55,6 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of UserEntity
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,39 +66,36 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
     Object? interviewScore = null,
     Object? careerScore = null,
   }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as String,
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            email: null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                      as String,
-            avatarUrl: freezed == avatarUrl
-                ? _value.avatarUrl
-                : avatarUrl // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            resumeScore: null == resumeScore
-                ? _value.resumeScore
-                : resumeScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            interviewScore: null == interviewScore
-                ? _value.interviewScore
-                : interviewScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            careerScore: null == careerScore
-                ? _value.careerScore
-                : careerScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatarUrl: freezed == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      resumeScore: null == resumeScore
+          ? _value.resumeScore
+          : resumeScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      interviewScore: null == interviewScore
+          ? _value.interviewScore
+          : interviewScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      careerScore: null == careerScore
+          ? _value.careerScore
+          : careerScore // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
   }
 }
 
@@ -113,20 +103,18 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
 abstract class _$$UserEntityImplCopyWith<$Res>
     implements $UserEntityCopyWith<$Res> {
   factory _$$UserEntityImplCopyWith(
-    _$UserEntityImpl value,
-    $Res Function(_$UserEntityImpl) then,
-  ) = __$$UserEntityImplCopyWithImpl<$Res>;
+          _$UserEntityImpl value, $Res Function(_$UserEntityImpl) then) =
+      __$$UserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String id,
-    String name,
-    String email,
-    String? avatarUrl,
-    int resumeScore,
-    int interviewScore,
-    int careerScore,
-  });
+  $Res call(
+      {String id,
+      String name,
+      String email,
+      String? avatarUrl,
+      int resumeScore,
+      int interviewScore,
+      int careerScore});
 }
 
 /// @nodoc
@@ -134,12 +122,9 @@ class __$$UserEntityImplCopyWithImpl<$Res>
     extends _$UserEntityCopyWithImpl<$Res, _$UserEntityImpl>
     implements _$$UserEntityImplCopyWith<$Res> {
   __$$UserEntityImplCopyWithImpl(
-    _$UserEntityImpl _value,
-    $Res Function(_$UserEntityImpl) _then,
-  ) : super(_value, _then);
+      _$UserEntityImpl _value, $Res Function(_$UserEntityImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of UserEntity
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,53 +136,50 @@ class __$$UserEntityImplCopyWithImpl<$Res>
     Object? interviewScore = null,
     Object? careerScore = null,
   }) {
-    return _then(
-      _$UserEntityImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        email: null == email
-            ? _value.email
-            : email // ignore: cast_nullable_to_non_nullable
-                  as String,
-        avatarUrl: freezed == avatarUrl
-            ? _value.avatarUrl
-            : avatarUrl // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        resumeScore: null == resumeScore
-            ? _value.resumeScore
-            : resumeScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        interviewScore: null == interviewScore
-            ? _value.interviewScore
-            : interviewScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        careerScore: null == careerScore
-            ? _value.careerScore
-            : careerScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-      ),
-    );
+    return _then(_$UserEntityImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatarUrl: freezed == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      resumeScore: null == resumeScore
+          ? _value.resumeScore
+          : resumeScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      interviewScore: null == interviewScore
+          ? _value.interviewScore
+          : interviewScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      careerScore: null == careerScore
+          ? _value.careerScore
+          : careerScore // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$UserEntityImpl implements _UserEntity {
-  const _$UserEntityImpl({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.avatarUrl,
-    required this.resumeScore,
-    required this.interviewScore,
-    required this.careerScore,
-  });
+  const _$UserEntityImpl(
+      {required this.id,
+      required this.name,
+      required this.email,
+      required this.avatarUrl,
+      required this.resumeScore,
+      required this.interviewScore,
+      required this.careerScore});
 
   @override
   final String id;
@@ -238,20 +220,10 @@ class _$UserEntityImpl implements _UserEntity {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    name,
-    email,
-    avatarUrl,
-    resumeScore,
-    interviewScore,
-    careerScore,
-  );
+  int get hashCode => Object.hash(runtimeType, id, name, email, avatarUrl,
+      resumeScore, interviewScore, careerScore);
 
-  /// Create a copy of UserEntity
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
@@ -259,15 +231,14 @@ class _$UserEntityImpl implements _UserEntity {
 }
 
 abstract class _UserEntity implements UserEntity {
-  const factory _UserEntity({
-    required final String id,
-    required final String name,
-    required final String email,
-    required final String? avatarUrl,
-    required final int resumeScore,
-    required final int interviewScore,
-    required final int careerScore,
-  }) = _$UserEntityImpl;
+  const factory _UserEntity(
+      {required final String id,
+      required final String name,
+      required final String email,
+      required final String? avatarUrl,
+      required final int resumeScore,
+      required final int interviewScore,
+      required final int careerScore}) = _$UserEntityImpl;
 
   @override
   String get id;
@@ -283,11 +254,8 @@ abstract class _UserEntity implements UserEntity {
   int get interviewScore;
   @override
   int get careerScore;
-
-  /// Create a copy of UserEntity
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

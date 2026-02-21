@@ -274,7 +274,7 @@ class _ResumeAnalysisPageState extends State<ResumeAnalysisPage>
                       height: ResponsiveHelper.getResponsiveSpacing(context, 16),
                     ),
                     ...widget.analysis.categoryScores.map((category) {
-                      final categoryProgress = category.score / 10;
+                      final categoryProgress = category.score / 100;
                       return Padding(
                         padding: EdgeInsets.only(
                           bottom: ResponsiveHelper.getResponsiveSpacing(context, 12),
@@ -332,7 +332,7 @@ class _ResumeAnalysisPageState extends State<ResumeAnalysisPage>
                                       borderRadius: BorderRadius.circular(6),
                                     ),
                                     child: Text(
-                                      '${category.score.toStringAsFixed(1)}/10',
+                                      '${category.score.toStringAsFixed(1)}/100',
                                       style:
                                       Theme.of(context).textTheme.bodySmall?.copyWith(
                                         color: AppTheme.primaryBlue,

@@ -7,7 +7,7 @@ import '../../../resume/presentation/providers/resume_provider.dart'; // 👈 IM
 
 final plannerRepositoryProvider = Provider<PlannerRepository>((ref) {
   return ApiPlannerRepository(
-    Dio(BaseOptions(baseUrl: 'http://10.60.248.60:8080')),
+    Dio(BaseOptions(baseUrl: 'https://students-analyzer-app-backend.onrender.com')),
   );
 });
 

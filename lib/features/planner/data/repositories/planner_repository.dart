@@ -1,5 +1,6 @@
+import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:student_analyzer_app/features/planner/domain/entities/planner_entities.dart';
+import '../../domain/entities/planner_entities.dart';
 
 abstract class PlannerRepository {
   Future<CareerPath> getCareerPath({
@@ -7,8 +8,6 @@ abstract class PlannerRepository {
     required String resumeId,
     required String skillName,
   });
-
-  Future<List<String>> getAvailableSkills();
 }
 
 class ApiPlannerRepository implements PlannerRepository {
@@ -16,28 +15,34 @@ class ApiPlannerRepository implements PlannerRepository {
 
   ApiPlannerRepository(this.dio);
 
+  Map<String, dynamic> _normalize(dynamic data) {
+    if (data is Map) return Map<String, dynamic>.from(data);
+    if (data is String) return jsonDecode(data);
+    throw Exception('Invalid response from Gemini');
+  }
+
   @override
   Future<CareerPath> getCareerPath({
     required String sessionToken,
     required String resumeId,
     required String skillName,
   }) async {
-    final res = await dio.post(
+    final response = await dio.post(
       '/career/plan',
       data: {
         'sessionToken': sessionToken,
         'resumeId': resumeId,
-        'goal': skillName,
+        'skillName': skillName, // backend may ignore
       },
     );
 
-    final data = res.data['data'];
+    final json = _normalize(response.data);
 
     return CareerPath(
-      id: data['id'],
-      skillName: data['skillName'],
-      suggestedRoles: List<String>.from(data['suggestedRoles']),
-      paths: (data['paths'] as List).map((p) {
+      id: json['id'],
+      skillName: json['skillName'],
+      suggestedRoles: List<String>.from(json['suggestedRoles']),
+      paths: (json['paths'] as List).map((p) {
         return LearningPath(
           roleName: p['roleName'],
           weeks: p['weeks'],
@@ -51,10 +56,5 @@ class ApiPlannerRepository implements PlannerRepository {
         );
       }).toList(),
     );
-  }
-
-  @override
-  Future<List<String>> getAvailableSkills() async {
-    return ['Backend', 'Frontend', 'Mobile'];
   }
 }

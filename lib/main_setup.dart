@@ -1,9 +1,18 @@
-// This file contains setup functions that could be called at app startup
+import 'package:flutter/widgets.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-// TODO: Call this at app startup to initialize any necessary services
-void initializeApp() {
-  // Initialize mocked data
-  // Initialize analytics
-  // Check for app updates
-  // Load user preferences
+import 'firebase_options.dart';
+import 'core/data/local/hive_service.dart';
+
+Future<void> initializeApp() async {
+  // Required before using async services
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // Initialize Hive
+  await HiveService.init();
 }

@@ -5,6 +5,8 @@ import 'package:student_analyzer_app/core/theme/app_theme.dart';
 import 'package:student_analyzer_app/core/utils/responsive_helper.dart';
 import 'package:student_analyzer_app/features/interview/presentation/providers/interview_provider.dart';
 
+import '../../domain/entities/interview_entities.dart';
+
 class InterviewLivePage extends ConsumerStatefulWidget {
   const InterviewLivePage({Key? key}) : super(key: key);
 
@@ -51,32 +53,38 @@ class _InterviewLivePageState extends ConsumerState<InterviewLivePage>
     }
 
     final repository = ref.read(interviewRepositoryProvider);
-    await repository.submitAnswer(
-      session.sessionId,
-      session.questions[currentIndex].id,
-      _answerController.text,
+
+    final nextQuestion = await repository.getNextQuestion(
+      previousQuestion: session.questions[currentIndex].text,
+      answer: _answerController.text,
     );
 
-    _answerController.clear();
+    final updatedQuestions = List<InterviewQuestion>.from(session.questions)
+      ..add(
+        InterviewQuestion(
+          id: "q_${currentIndex + 1}",
+          text: nextQuestion,
+          userAnswer: null,
+          answered: false,
+        ),
+      );
 
-    if (currentIndex < session.questions.length - 1) {
-      ref.read(currentQuestionIndexProvider.notifier).state = currentIndex + 1;
-    } else {
-      _handleEndInterview();
-    }
+    ref.read(currentInterviewSessionProvider.notifier).state =
+        session.copyWith(questions: updatedQuestions);
+
+    ref.read(currentQuestionIndexProvider.notifier).state =
+        currentIndex + 1;
+
+    _answerController.clear();
   }
+
 
   Future<void> _handleEndInterview() async {
-    final session = ref.read(currentInterviewSessionProvider)!;
-    final repository = ref.read(interviewRepositoryProvider);
-
-    final result = await repository.endInterviewSession(session.sessionId);
-    ref.read(interviewResultsProvider.notifier).state = result;
-
     if (mounted) {
-      context.push('/interview/results');
+      context.go('/dashboard'); // or wherever you want to return
     }
   }
+
 
   @override
   Widget build(BuildContext context) {

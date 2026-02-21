@@ -12,7 +12,7 @@ abstract class WritingRepository {
 class ApiWritingRepository implements WritingRepository {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://10.60.248.60:8080',
+      baseUrl: 'https://students-analyzer-app-backend.onrender.com',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -40,11 +40,11 @@ class ApiWritingRepository implements WritingRepository {
   }) async {
     final response = await _dio.post(
       '/writing/generate',
-      data: jsonEncode({
+      data: {
         'sessionToken': sessionToken,
-        'task': _mapTask(request.type), // ✅ FIX
+        'task': _mapTask(request.type),
         'content': request.context,
-      }),
+      },
     );
 
     final body = response.data;

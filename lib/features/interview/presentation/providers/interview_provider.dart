@@ -4,7 +4,7 @@ import 'package:student_analyzer_app/features/interview/domain/entities/intervie
 
 // Interview Repository Provider
 final interviewRepositoryProvider = Provider<InterviewRepository>((ref) {
-  return MockInterviewRepository();
+  return ApiInterviewRepository();
 });
 
 // Current Interview Session Provider

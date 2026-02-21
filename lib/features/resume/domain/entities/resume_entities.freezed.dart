@@ -12,8 +12,7 @@ part of 'resume_entities.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ResumeAnalysis {
@@ -28,9 +27,7 @@ mixin _$ResumeAnalysis {
   List<Recommendation> get recommendations =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of ResumeAnalysis
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ResumeAnalysisCopyWith<ResumeAnalysis> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -38,20 +35,18 @@ mixin _$ResumeAnalysis {
 /// @nodoc
 abstract class $ResumeAnalysisCopyWith<$Res> {
   factory $ResumeAnalysisCopyWith(
-    ResumeAnalysis value,
-    $Res Function(ResumeAnalysis) then,
-  ) = _$ResumeAnalysisCopyWithImpl<$Res, ResumeAnalysis>;
+          ResumeAnalysis value, $Res Function(ResumeAnalysis) then) =
+      _$ResumeAnalysisCopyWithImpl<$Res, ResumeAnalysis>;
   @useResult
-  $Res call({
-    String resumeId,
-    double totalScore,
-    String scoreStatus,
-    int starRating,
-    List<CategoryScore> categoryScores,
-    String keyStrength,
-    String keyImprovement,
-    List<Recommendation> recommendations,
-  });
+  $Res call(
+      {String resumeId,
+      double totalScore,
+      String scoreStatus,
+      int starRating,
+      List<CategoryScore> categoryScores,
+      String keyStrength,
+      String keyImprovement,
+      List<Recommendation> recommendations});
 }
 
 /// @nodoc
@@ -64,8 +59,6 @@ class _$ResumeAnalysisCopyWithImpl<$Res, $Val extends ResumeAnalysis>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ResumeAnalysis
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,65 +71,60 @@ class _$ResumeAnalysisCopyWithImpl<$Res, $Val extends ResumeAnalysis>
     Object? keyImprovement = null,
     Object? recommendations = null,
   }) {
-    return _then(
-      _value.copyWith(
-            resumeId: null == resumeId
-                ? _value.resumeId
-                : resumeId // ignore: cast_nullable_to_non_nullable
-                      as String,
-            totalScore: null == totalScore
-                ? _value.totalScore
-                : totalScore // ignore: cast_nullable_to_non_nullable
-                      as double,
-            scoreStatus: null == scoreStatus
-                ? _value.scoreStatus
-                : scoreStatus // ignore: cast_nullable_to_non_nullable
-                      as String,
-            starRating: null == starRating
-                ? _value.starRating
-                : starRating // ignore: cast_nullable_to_non_nullable
-                      as int,
-            categoryScores: null == categoryScores
-                ? _value.categoryScores
-                : categoryScores // ignore: cast_nullable_to_non_nullable
-                      as List<CategoryScore>,
-            keyStrength: null == keyStrength
-                ? _value.keyStrength
-                : keyStrength // ignore: cast_nullable_to_non_nullable
-                      as String,
-            keyImprovement: null == keyImprovement
-                ? _value.keyImprovement
-                : keyImprovement // ignore: cast_nullable_to_non_nullable
-                      as String,
-            recommendations: null == recommendations
-                ? _value.recommendations
-                : recommendations // ignore: cast_nullable_to_non_nullable
-                      as List<Recommendation>,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      resumeId: null == resumeId
+          ? _value.resumeId
+          : resumeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      totalScore: null == totalScore
+          ? _value.totalScore
+          : totalScore // ignore: cast_nullable_to_non_nullable
+              as double,
+      scoreStatus: null == scoreStatus
+          ? _value.scoreStatus
+          : scoreStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      starRating: null == starRating
+          ? _value.starRating
+          : starRating // ignore: cast_nullable_to_non_nullable
+              as int,
+      categoryScores: null == categoryScores
+          ? _value.categoryScores
+          : categoryScores // ignore: cast_nullable_to_non_nullable
+              as List<CategoryScore>,
+      keyStrength: null == keyStrength
+          ? _value.keyStrength
+          : keyStrength // ignore: cast_nullable_to_non_nullable
+              as String,
+      keyImprovement: null == keyImprovement
+          ? _value.keyImprovement
+          : keyImprovement // ignore: cast_nullable_to_non_nullable
+              as String,
+      recommendations: null == recommendations
+          ? _value.recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendation>,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$ResumeAnalysisImplCopyWith<$Res>
     implements $ResumeAnalysisCopyWith<$Res> {
-  factory _$$ResumeAnalysisImplCopyWith(
-    _$ResumeAnalysisImpl value,
-    $Res Function(_$ResumeAnalysisImpl) then,
-  ) = __$$ResumeAnalysisImplCopyWithImpl<$Res>;
+  factory _$$ResumeAnalysisImplCopyWith(_$ResumeAnalysisImpl value,
+          $Res Function(_$ResumeAnalysisImpl) then) =
+      __$$ResumeAnalysisImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String resumeId,
-    double totalScore,
-    String scoreStatus,
-    int starRating,
-    List<CategoryScore> categoryScores,
-    String keyStrength,
-    String keyImprovement,
-    List<Recommendation> recommendations,
-  });
+  $Res call(
+      {String resumeId,
+      double totalScore,
+      String scoreStatus,
+      int starRating,
+      List<CategoryScore> categoryScores,
+      String keyStrength,
+      String keyImprovement,
+      List<Recommendation> recommendations});
 }
 
 /// @nodoc
@@ -144,12 +132,9 @@ class __$$ResumeAnalysisImplCopyWithImpl<$Res>
     extends _$ResumeAnalysisCopyWithImpl<$Res, _$ResumeAnalysisImpl>
     implements _$$ResumeAnalysisImplCopyWith<$Res> {
   __$$ResumeAnalysisImplCopyWithImpl(
-    _$ResumeAnalysisImpl _value,
-    $Res Function(_$ResumeAnalysisImpl) _then,
-  ) : super(_value, _then);
+      _$ResumeAnalysisImpl _value, $Res Function(_$ResumeAnalysisImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of ResumeAnalysis
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,59 +147,57 @@ class __$$ResumeAnalysisImplCopyWithImpl<$Res>
     Object? keyImprovement = null,
     Object? recommendations = null,
   }) {
-    return _then(
-      _$ResumeAnalysisImpl(
-        resumeId: null == resumeId
-            ? _value.resumeId
-            : resumeId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        totalScore: null == totalScore
-            ? _value.totalScore
-            : totalScore // ignore: cast_nullable_to_non_nullable
-                  as double,
-        scoreStatus: null == scoreStatus
-            ? _value.scoreStatus
-            : scoreStatus // ignore: cast_nullable_to_non_nullable
-                  as String,
-        starRating: null == starRating
-            ? _value.starRating
-            : starRating // ignore: cast_nullable_to_non_nullable
-                  as int,
-        categoryScores: null == categoryScores
-            ? _value._categoryScores
-            : categoryScores // ignore: cast_nullable_to_non_nullable
-                  as List<CategoryScore>,
-        keyStrength: null == keyStrength
-            ? _value.keyStrength
-            : keyStrength // ignore: cast_nullable_to_non_nullable
-                  as String,
-        keyImprovement: null == keyImprovement
-            ? _value.keyImprovement
-            : keyImprovement // ignore: cast_nullable_to_non_nullable
-                  as String,
-        recommendations: null == recommendations
-            ? _value._recommendations
-            : recommendations // ignore: cast_nullable_to_non_nullable
-                  as List<Recommendation>,
-      ),
-    );
+    return _then(_$ResumeAnalysisImpl(
+      resumeId: null == resumeId
+          ? _value.resumeId
+          : resumeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      totalScore: null == totalScore
+          ? _value.totalScore
+          : totalScore // ignore: cast_nullable_to_non_nullable
+              as double,
+      scoreStatus: null == scoreStatus
+          ? _value.scoreStatus
+          : scoreStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      starRating: null == starRating
+          ? _value.starRating
+          : starRating // ignore: cast_nullable_to_non_nullable
+              as int,
+      categoryScores: null == categoryScores
+          ? _value._categoryScores
+          : categoryScores // ignore: cast_nullable_to_non_nullable
+              as List<CategoryScore>,
+      keyStrength: null == keyStrength
+          ? _value.keyStrength
+          : keyStrength // ignore: cast_nullable_to_non_nullable
+              as String,
+      keyImprovement: null == keyImprovement
+          ? _value.keyImprovement
+          : keyImprovement // ignore: cast_nullable_to_non_nullable
+              as String,
+      recommendations: null == recommendations
+          ? _value._recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendation>,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$ResumeAnalysisImpl implements _ResumeAnalysis {
-  const _$ResumeAnalysisImpl({
-    required this.resumeId,
-    required this.totalScore,
-    required this.scoreStatus,
-    required this.starRating,
-    required final List<CategoryScore> categoryScores,
-    required this.keyStrength,
-    required this.keyImprovement,
-    required final List<Recommendation> recommendations,
-  }) : _categoryScores = categoryScores,
-       _recommendations = recommendations;
+  const _$ResumeAnalysisImpl(
+      {required this.resumeId,
+      required this.totalScore,
+      required this.scoreStatus,
+      required this.starRating,
+      required final List<CategoryScore> categoryScores,
+      required this.keyStrength,
+      required this.keyImprovement,
+      required final List<Recommendation> recommendations})
+      : _categoryScores = categoryScores,
+        _recommendations = recommendations;
 
   @override
   final String resumeId;
@@ -222,12 +205,12 @@ class _$ResumeAnalysisImpl implements _ResumeAnalysis {
   final double totalScore;
   @override
   final String scoreStatus;
-  // 'EXCELLENT', 'GOOD', 'AVERAGE', 'NEEDS_WORK'
+// 'EXCELLENT', 'GOOD', 'AVERAGE', 'NEEDS_WORK'
   @override
   final int starRating;
-  // 1-5
+// 1-5
   final List<CategoryScore> _categoryScores;
-  // 1-5
+// 1-5
   @override
   List<CategoryScore> get categoryScores {
     if (_categoryScores is EqualUnmodifiableListView) return _categoryScores;
@@ -265,66 +248,57 @@ class _$ResumeAnalysisImpl implements _ResumeAnalysis {
                 other.scoreStatus == scoreStatus) &&
             (identical(other.starRating, starRating) ||
                 other.starRating == starRating) &&
-            const DeepCollectionEquality().equals(
-              other._categoryScores,
-              _categoryScores,
-            ) &&
+            const DeepCollectionEquality()
+                .equals(other._categoryScores, _categoryScores) &&
             (identical(other.keyStrength, keyStrength) ||
                 other.keyStrength == keyStrength) &&
             (identical(other.keyImprovement, keyImprovement) ||
                 other.keyImprovement == keyImprovement) &&
-            const DeepCollectionEquality().equals(
-              other._recommendations,
-              _recommendations,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._recommendations, _recommendations));
   }
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    resumeId,
-    totalScore,
-    scoreStatus,
-    starRating,
-    const DeepCollectionEquality().hash(_categoryScores),
-    keyStrength,
-    keyImprovement,
-    const DeepCollectionEquality().hash(_recommendations),
-  );
+      runtimeType,
+      resumeId,
+      totalScore,
+      scoreStatus,
+      starRating,
+      const DeepCollectionEquality().hash(_categoryScores),
+      keyStrength,
+      keyImprovement,
+      const DeepCollectionEquality().hash(_recommendations));
 
-  /// Create a copy of ResumeAnalysis
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ResumeAnalysisImplCopyWith<_$ResumeAnalysisImpl> get copyWith =>
       __$$ResumeAnalysisImplCopyWithImpl<_$ResumeAnalysisImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _ResumeAnalysis implements ResumeAnalysis {
-  const factory _ResumeAnalysis({
-    required final String resumeId,
-    required final double totalScore,
-    required final String scoreStatus,
-    required final int starRating,
-    required final List<CategoryScore> categoryScores,
-    required final String keyStrength,
-    required final String keyImprovement,
-    required final List<Recommendation> recommendations,
-  }) = _$ResumeAnalysisImpl;
+  const factory _ResumeAnalysis(
+          {required final String resumeId,
+          required final double totalScore,
+          required final String scoreStatus,
+          required final int starRating,
+          required final List<CategoryScore> categoryScores,
+          required final String keyStrength,
+          required final String keyImprovement,
+          required final List<Recommendation> recommendations}) =
+      _$ResumeAnalysisImpl;
 
   @override
   String get resumeId;
   @override
   double get totalScore;
   @override
-  String get scoreStatus; // 'EXCELLENT', 'GOOD', 'AVERAGE', 'NEEDS_WORK'
-  @override
-  int get starRating; // 1-5
-  @override
+  String get scoreStatus;
+  @override // 'EXCELLENT', 'GOOD', 'AVERAGE', 'NEEDS_WORK'
+  int get starRating;
+  @override // 1-5
   List<CategoryScore> get categoryScores;
   @override
   String get keyStrength;
@@ -332,11 +306,8 @@ abstract class _ResumeAnalysis implements ResumeAnalysis {
   String get keyImprovement;
   @override
   List<Recommendation> get recommendations;
-
-  /// Create a copy of ResumeAnalysis
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ResumeAnalysisImplCopyWith<_$ResumeAnalysisImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -348,9 +319,7 @@ mixin _$CategoryScore {
   double get score => throw _privateConstructorUsedError; // 0-10
   String get description => throw _privateConstructorUsedError;
 
-  /// Create a copy of CategoryScore
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CategoryScoreCopyWith<CategoryScore> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -358,9 +327,8 @@ mixin _$CategoryScore {
 /// @nodoc
 abstract class $CategoryScoreCopyWith<$Res> {
   factory $CategoryScoreCopyWith(
-    CategoryScore value,
-    $Res Function(CategoryScore) then,
-  ) = _$CategoryScoreCopyWithImpl<$Res, CategoryScore>;
+          CategoryScore value, $Res Function(CategoryScore) then) =
+      _$CategoryScoreCopyWithImpl<$Res, CategoryScore>;
   @useResult
   $Res call({String category, double score, String description});
 }
@@ -375,8 +343,6 @@ class _$CategoryScoreCopyWithImpl<$Res, $Val extends CategoryScore>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CategoryScore
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -384,23 +350,20 @@ class _$CategoryScoreCopyWithImpl<$Res, $Val extends CategoryScore>
     Object? score = null,
     Object? description = null,
   }) {
-    return _then(
-      _value.copyWith(
-            category: null == category
-                ? _value.category
-                : category // ignore: cast_nullable_to_non_nullable
-                      as String,
-            score: null == score
-                ? _value.score
-                : score // ignore: cast_nullable_to_non_nullable
-                      as double,
-            description: null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      score: null == score
+          ? _value.score
+          : score // ignore: cast_nullable_to_non_nullable
+              as double,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
   }
 }
 
@@ -408,9 +371,8 @@ class _$CategoryScoreCopyWithImpl<$Res, $Val extends CategoryScore>
 abstract class _$$CategoryScoreImplCopyWith<$Res>
     implements $CategoryScoreCopyWith<$Res> {
   factory _$$CategoryScoreImplCopyWith(
-    _$CategoryScoreImpl value,
-    $Res Function(_$CategoryScoreImpl) then,
-  ) = __$$CategoryScoreImplCopyWithImpl<$Res>;
+          _$CategoryScoreImpl value, $Res Function(_$CategoryScoreImpl) then) =
+      __$$CategoryScoreImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String category, double score, String description});
@@ -421,12 +383,9 @@ class __$$CategoryScoreImplCopyWithImpl<$Res>
     extends _$CategoryScoreCopyWithImpl<$Res, _$CategoryScoreImpl>
     implements _$$CategoryScoreImplCopyWith<$Res> {
   __$$CategoryScoreImplCopyWithImpl(
-    _$CategoryScoreImpl _value,
-    $Res Function(_$CategoryScoreImpl) _then,
-  ) : super(_value, _then);
+      _$CategoryScoreImpl _value, $Res Function(_$CategoryScoreImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of CategoryScore
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -434,40 +393,35 @@ class __$$CategoryScoreImplCopyWithImpl<$Res>
     Object? score = null,
     Object? description = null,
   }) {
-    return _then(
-      _$CategoryScoreImpl(
-        category: null == category
-            ? _value.category
-            : category // ignore: cast_nullable_to_non_nullable
-                  as String,
-        score: null == score
-            ? _value.score
-            : score // ignore: cast_nullable_to_non_nullable
-                  as double,
-        description: null == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
+    return _then(_$CategoryScoreImpl(
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      score: null == score
+          ? _value.score
+          : score // ignore: cast_nullable_to_non_nullable
+              as double,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$CategoryScoreImpl implements _CategoryScore {
-  const _$CategoryScoreImpl({
-    required this.category,
-    required this.score,
-    required this.description,
-  });
+  const _$CategoryScoreImpl(
+      {required this.category, required this.score, required this.description});
 
   @override
   final String category;
-  // 'Formatting', 'Content', 'Skills', 'ATS', etc.
+// 'Formatting', 'Content', 'Skills', 'ATS', etc.
   @override
   final double score;
-  // 0-10
+// 0-10
   @override
   final String description;
 
@@ -491,9 +445,7 @@ class _$CategoryScoreImpl implements _CategoryScore {
   @override
   int get hashCode => Object.hash(runtimeType, category, score, description);
 
-  /// Create a copy of CategoryScore
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CategoryScoreImplCopyWith<_$CategoryScoreImpl> get copyWith =>
@@ -501,23 +453,19 @@ class _$CategoryScoreImpl implements _CategoryScore {
 }
 
 abstract class _CategoryScore implements CategoryScore {
-  const factory _CategoryScore({
-    required final String category,
-    required final double score,
-    required final String description,
-  }) = _$CategoryScoreImpl;
+  const factory _CategoryScore(
+      {required final String category,
+      required final double score,
+      required final String description}) = _$CategoryScoreImpl;
 
   @override
-  String get category; // 'Formatting', 'Content', 'Skills', 'ATS', etc.
-  @override
-  double get score; // 0-10
-  @override
+  String get category;
+  @override // 'Formatting', 'Content', 'Skills', 'ATS', etc.
+  double get score;
+  @override // 0-10
   String get description;
-
-  /// Create a copy of CategoryScore
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CategoryScoreImplCopyWith<_$CategoryScoreImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -528,9 +476,7 @@ mixin _$Recommendation {
   String get description => throw _privateConstructorUsedError;
   int get priority => throw _privateConstructorUsedError;
 
-  /// Create a copy of Recommendation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $RecommendationCopyWith<Recommendation> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -538,9 +484,8 @@ mixin _$Recommendation {
 /// @nodoc
 abstract class $RecommendationCopyWith<$Res> {
   factory $RecommendationCopyWith(
-    Recommendation value,
-    $Res Function(Recommendation) then,
-  ) = _$RecommendationCopyWithImpl<$Res, Recommendation>;
+          Recommendation value, $Res Function(Recommendation) then) =
+      _$RecommendationCopyWithImpl<$Res, Recommendation>;
   @useResult
   $Res call({String title, String description, int priority});
 }
@@ -555,8 +500,6 @@ class _$RecommendationCopyWithImpl<$Res, $Val extends Recommendation>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Recommendation
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -564,33 +507,29 @@ class _$RecommendationCopyWithImpl<$Res, $Val extends Recommendation>
     Object? description = null,
     Object? priority = null,
   }) {
-    return _then(
-      _value.copyWith(
-            title: null == title
-                ? _value.title
-                : title // ignore: cast_nullable_to_non_nullable
-                      as String,
-            description: null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String,
-            priority: null == priority
-                ? _value.priority
-                : priority // ignore: cast_nullable_to_non_nullable
-                      as int,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      priority: null == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$RecommendationImplCopyWith<$Res>
     implements $RecommendationCopyWith<$Res> {
-  factory _$$RecommendationImplCopyWith(
-    _$RecommendationImpl value,
-    $Res Function(_$RecommendationImpl) then,
-  ) = __$$RecommendationImplCopyWithImpl<$Res>;
+  factory _$$RecommendationImplCopyWith(_$RecommendationImpl value,
+          $Res Function(_$RecommendationImpl) then) =
+      __$$RecommendationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String title, String description, int priority});
@@ -601,12 +540,9 @@ class __$$RecommendationImplCopyWithImpl<$Res>
     extends _$RecommendationCopyWithImpl<$Res, _$RecommendationImpl>
     implements _$$RecommendationImplCopyWith<$Res> {
   __$$RecommendationImplCopyWithImpl(
-    _$RecommendationImpl _value,
-    $Res Function(_$RecommendationImpl) _then,
-  ) : super(_value, _then);
+      _$RecommendationImpl _value, $Res Function(_$RecommendationImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of Recommendation
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -614,33 +550,28 @@ class __$$RecommendationImplCopyWithImpl<$Res>
     Object? description = null,
     Object? priority = null,
   }) {
-    return _then(
-      _$RecommendationImpl(
-        title: null == title
-            ? _value.title
-            : title // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: null == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-        priority: null == priority
-            ? _value.priority
-            : priority // ignore: cast_nullable_to_non_nullable
-                  as int,
-      ),
-    );
+    return _then(_$RecommendationImpl(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      priority: null == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$RecommendationImpl implements _Recommendation {
-  const _$RecommendationImpl({
-    required this.title,
-    required this.description,
-    required this.priority,
-  });
+  const _$RecommendationImpl(
+      {required this.title, required this.description, required this.priority});
 
   @override
   final String title;
@@ -669,24 +600,19 @@ class _$RecommendationImpl implements _Recommendation {
   @override
   int get hashCode => Object.hash(runtimeType, title, description, priority);
 
-  /// Create a copy of Recommendation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RecommendationImplCopyWith<_$RecommendationImpl> get copyWith =>
       __$$RecommendationImplCopyWithImpl<_$RecommendationImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _Recommendation implements Recommendation {
-  const factory _Recommendation({
-    required final String title,
-    required final String description,
-    required final int priority,
-  }) = _$RecommendationImpl;
+  const factory _Recommendation(
+      {required final String title,
+      required final String description,
+      required final int priority}) = _$RecommendationImpl;
 
   @override
   String get title;
@@ -694,11 +620,8 @@ abstract class _Recommendation implements Recommendation {
   String get description;
   @override
   int get priority;
-
-  /// Create a copy of Recommendation
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$RecommendationImplCopyWith<_$RecommendationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -710,9 +633,7 @@ mixin _$UploadedResume {
   DateTime get uploadedAt => throw _privateConstructorUsedError;
   double get fileSizeKB => throw _privateConstructorUsedError;
 
-  /// Create a copy of UploadedResume
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $UploadedResumeCopyWith<UploadedResume> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -720,16 +641,11 @@ mixin _$UploadedResume {
 /// @nodoc
 abstract class $UploadedResumeCopyWith<$Res> {
   factory $UploadedResumeCopyWith(
-    UploadedResume value,
-    $Res Function(UploadedResume) then,
-  ) = _$UploadedResumeCopyWithImpl<$Res, UploadedResume>;
+          UploadedResume value, $Res Function(UploadedResume) then) =
+      _$UploadedResumeCopyWithImpl<$Res, UploadedResume>;
   @useResult
-  $Res call({
-    String id,
-    String fileName,
-    DateTime uploadedAt,
-    double fileSizeKB,
-  });
+  $Res call(
+      {String id, String fileName, DateTime uploadedAt, double fileSizeKB});
 }
 
 /// @nodoc
@@ -742,8 +658,6 @@ class _$UploadedResumeCopyWithImpl<$Res, $Val extends UploadedResume>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of UploadedResume
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -752,45 +666,37 @@ class _$UploadedResumeCopyWithImpl<$Res, $Val extends UploadedResume>
     Object? uploadedAt = null,
     Object? fileSizeKB = null,
   }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as String,
-            fileName: null == fileName
-                ? _value.fileName
-                : fileName // ignore: cast_nullable_to_non_nullable
-                      as String,
-            uploadedAt: null == uploadedAt
-                ? _value.uploadedAt
-                : uploadedAt // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-            fileSizeKB: null == fileSizeKB
-                ? _value.fileSizeKB
-                : fileSizeKB // ignore: cast_nullable_to_non_nullable
-                      as double,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      uploadedAt: null == uploadedAt
+          ? _value.uploadedAt
+          : uploadedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      fileSizeKB: null == fileSizeKB
+          ? _value.fileSizeKB
+          : fileSizeKB // ignore: cast_nullable_to_non_nullable
+              as double,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$UploadedResumeImplCopyWith<$Res>
     implements $UploadedResumeCopyWith<$Res> {
-  factory _$$UploadedResumeImplCopyWith(
-    _$UploadedResumeImpl value,
-    $Res Function(_$UploadedResumeImpl) then,
-  ) = __$$UploadedResumeImplCopyWithImpl<$Res>;
+  factory _$$UploadedResumeImplCopyWith(_$UploadedResumeImpl value,
+          $Res Function(_$UploadedResumeImpl) then) =
+      __$$UploadedResumeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String id,
-    String fileName,
-    DateTime uploadedAt,
-    double fileSizeKB,
-  });
+  $Res call(
+      {String id, String fileName, DateTime uploadedAt, double fileSizeKB});
 }
 
 /// @nodoc
@@ -798,12 +704,9 @@ class __$$UploadedResumeImplCopyWithImpl<$Res>
     extends _$UploadedResumeCopyWithImpl<$Res, _$UploadedResumeImpl>
     implements _$$UploadedResumeImplCopyWith<$Res> {
   __$$UploadedResumeImplCopyWithImpl(
-    _$UploadedResumeImpl _value,
-    $Res Function(_$UploadedResumeImpl) _then,
-  ) : super(_value, _then);
+      _$UploadedResumeImpl _value, $Res Function(_$UploadedResumeImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of UploadedResume
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -812,38 +715,35 @@ class __$$UploadedResumeImplCopyWithImpl<$Res>
     Object? uploadedAt = null,
     Object? fileSizeKB = null,
   }) {
-    return _then(
-      _$UploadedResumeImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        fileName: null == fileName
-            ? _value.fileName
-            : fileName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        uploadedAt: null == uploadedAt
-            ? _value.uploadedAt
-            : uploadedAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        fileSizeKB: null == fileSizeKB
-            ? _value.fileSizeKB
-            : fileSizeKB // ignore: cast_nullable_to_non_nullable
-                  as double,
-      ),
-    );
+    return _then(_$UploadedResumeImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      uploadedAt: null == uploadedAt
+          ? _value.uploadedAt
+          : uploadedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      fileSizeKB: null == fileSizeKB
+          ? _value.fileSizeKB
+          : fileSizeKB // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$UploadedResumeImpl implements _UploadedResume {
-  const _$UploadedResumeImpl({
-    required this.id,
-    required this.fileName,
-    required this.uploadedAt,
-    required this.fileSizeKB,
-  });
+  const _$UploadedResumeImpl(
+      {required this.id,
+      required this.fileName,
+      required this.uploadedAt,
+      required this.fileSizeKB});
 
   @override
   final String id;
@@ -877,25 +777,20 @@ class _$UploadedResumeImpl implements _UploadedResume {
   int get hashCode =>
       Object.hash(runtimeType, id, fileName, uploadedAt, fileSizeKB);
 
-  /// Create a copy of UploadedResume
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$UploadedResumeImplCopyWith<_$UploadedResumeImpl> get copyWith =>
       __$$UploadedResumeImplCopyWithImpl<_$UploadedResumeImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _UploadedResume implements UploadedResume {
-  const factory _UploadedResume({
-    required final String id,
-    required final String fileName,
-    required final DateTime uploadedAt,
-    required final double fileSizeKB,
-  }) = _$UploadedResumeImpl;
+  const factory _UploadedResume(
+      {required final String id,
+      required final String fileName,
+      required final DateTime uploadedAt,
+      required final double fileSizeKB}) = _$UploadedResumeImpl;
 
   @override
   String get id;
@@ -905,11 +800,8 @@ abstract class _UploadedResume implements UploadedResume {
   DateTime get uploadedAt;
   @override
   double get fileSizeKB;
-
-  /// Create a copy of UploadedResume
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$UploadedResumeImplCopyWith<_$UploadedResumeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

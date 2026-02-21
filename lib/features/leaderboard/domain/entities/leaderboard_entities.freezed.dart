@@ -12,8 +12,7 @@ part of 'leaderboard_entities.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LeaderboardStudent {
@@ -24,9 +23,7 @@ mixin _$LeaderboardStudent {
   int get careerScore => throw _privateConstructorUsedError;
   String get avatarInitials => throw _privateConstructorUsedError;
 
-  /// Create a copy of LeaderboardStudent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $LeaderboardStudentCopyWith<LeaderboardStudent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -34,18 +31,16 @@ mixin _$LeaderboardStudent {
 /// @nodoc
 abstract class $LeaderboardStudentCopyWith<$Res> {
   factory $LeaderboardStudentCopyWith(
-    LeaderboardStudent value,
-    $Res Function(LeaderboardStudent) then,
-  ) = _$LeaderboardStudentCopyWithImpl<$Res, LeaderboardStudent>;
+          LeaderboardStudent value, $Res Function(LeaderboardStudent) then) =
+      _$LeaderboardStudentCopyWithImpl<$Res, LeaderboardStudent>;
   @useResult
-  $Res call({
-    String id,
-    String name,
-    String university,
-    int rank,
-    int careerScore,
-    String avatarInitials,
-  });
+  $Res call(
+      {String id,
+      String name,
+      String university,
+      int rank,
+      int careerScore,
+      String avatarInitials});
 }
 
 /// @nodoc
@@ -58,8 +53,6 @@ class _$LeaderboardStudentCopyWithImpl<$Res, $Val extends LeaderboardStudent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LeaderboardStudent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,68 +63,60 @@ class _$LeaderboardStudentCopyWithImpl<$Res, $Val extends LeaderboardStudent>
     Object? careerScore = null,
     Object? avatarInitials = null,
   }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as String,
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            university: null == university
-                ? _value.university
-                : university // ignore: cast_nullable_to_non_nullable
-                      as String,
-            rank: null == rank
-                ? _value.rank
-                : rank // ignore: cast_nullable_to_non_nullable
-                      as int,
-            careerScore: null == careerScore
-                ? _value.careerScore
-                : careerScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            avatarInitials: null == avatarInitials
-                ? _value.avatarInitials
-                : avatarInitials // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      university: null == university
+          ? _value.university
+          : university // ignore: cast_nullable_to_non_nullable
+              as String,
+      rank: null == rank
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
+              as int,
+      careerScore: null == careerScore
+          ? _value.careerScore
+          : careerScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      avatarInitials: null == avatarInitials
+          ? _value.avatarInitials
+          : avatarInitials // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$LeaderboardStudentImplCopyWith<$Res>
     implements $LeaderboardStudentCopyWith<$Res> {
-  factory _$$LeaderboardStudentImplCopyWith(
-    _$LeaderboardStudentImpl value,
-    $Res Function(_$LeaderboardStudentImpl) then,
-  ) = __$$LeaderboardStudentImplCopyWithImpl<$Res>;
+  factory _$$LeaderboardStudentImplCopyWith(_$LeaderboardStudentImpl value,
+          $Res Function(_$LeaderboardStudentImpl) then) =
+      __$$LeaderboardStudentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String id,
-    String name,
-    String university,
-    int rank,
-    int careerScore,
-    String avatarInitials,
-  });
+  $Res call(
+      {String id,
+      String name,
+      String university,
+      int rank,
+      int careerScore,
+      String avatarInitials});
 }
 
 /// @nodoc
 class __$$LeaderboardStudentImplCopyWithImpl<$Res>
     extends _$LeaderboardStudentCopyWithImpl<$Res, _$LeaderboardStudentImpl>
     implements _$$LeaderboardStudentImplCopyWith<$Res> {
-  __$$LeaderboardStudentImplCopyWithImpl(
-    _$LeaderboardStudentImpl _value,
-    $Res Function(_$LeaderboardStudentImpl) _then,
-  ) : super(_value, _then);
+  __$$LeaderboardStudentImplCopyWithImpl(_$LeaderboardStudentImpl _value,
+      $Res Function(_$LeaderboardStudentImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of LeaderboardStudent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -142,48 +127,45 @@ class __$$LeaderboardStudentImplCopyWithImpl<$Res>
     Object? careerScore = null,
     Object? avatarInitials = null,
   }) {
-    return _then(
-      _$LeaderboardStudentImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        university: null == university
-            ? _value.university
-            : university // ignore: cast_nullable_to_non_nullable
-                  as String,
-        rank: null == rank
-            ? _value.rank
-            : rank // ignore: cast_nullable_to_non_nullable
-                  as int,
-        careerScore: null == careerScore
-            ? _value.careerScore
-            : careerScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        avatarInitials: null == avatarInitials
-            ? _value.avatarInitials
-            : avatarInitials // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
+    return _then(_$LeaderboardStudentImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      university: null == university
+          ? _value.university
+          : university // ignore: cast_nullable_to_non_nullable
+              as String,
+      rank: null == rank
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
+              as int,
+      careerScore: null == careerScore
+          ? _value.careerScore
+          : careerScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      avatarInitials: null == avatarInitials
+          ? _value.avatarInitials
+          : avatarInitials // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$LeaderboardStudentImpl implements _LeaderboardStudent {
-  const _$LeaderboardStudentImpl({
-    required this.id,
-    required this.name,
-    required this.university,
-    required this.rank,
-    required this.careerScore,
-    required this.avatarInitials,
-  });
+  const _$LeaderboardStudentImpl(
+      {required this.id,
+      required this.name,
+      required this.university,
+      required this.rank,
+      required this.careerScore,
+      required this.avatarInitials});
 
   @override
   final String id;
@@ -221,36 +203,24 @@ class _$LeaderboardStudentImpl implements _LeaderboardStudent {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    name,
-    university,
-    rank,
-    careerScore,
-    avatarInitials,
-  );
+      runtimeType, id, name, university, rank, careerScore, avatarInitials);
 
-  /// Create a copy of LeaderboardStudent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LeaderboardStudentImplCopyWith<_$LeaderboardStudentImpl> get copyWith =>
       __$$LeaderboardStudentImplCopyWithImpl<_$LeaderboardStudentImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _LeaderboardStudent implements LeaderboardStudent {
-  const factory _LeaderboardStudent({
-    required final String id,
-    required final String name,
-    required final String university,
-    required final int rank,
-    required final int careerScore,
-    required final String avatarInitials,
-  }) = _$LeaderboardStudentImpl;
+  const factory _LeaderboardStudent(
+      {required final String id,
+      required final String name,
+      required final String university,
+      required final int rank,
+      required final int careerScore,
+      required final String avatarInitials}) = _$LeaderboardStudentImpl;
 
   @override
   String get id;
@@ -264,11 +234,8 @@ abstract class _LeaderboardStudent implements LeaderboardStudent {
   int get careerScore;
   @override
   String get avatarInitials;
-
-  /// Create a copy of LeaderboardStudent
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$LeaderboardStudentImplCopyWith<_$LeaderboardStudentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -286,9 +253,7 @@ mixin _$StudentPerformance {
   int get careerScore => throw _privateConstructorUsedError;
   List<ModuleProgress> get moduleProgress => throw _privateConstructorUsedError;
 
-  /// Create a copy of StudentPerformance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $StudentPerformanceCopyWith<StudentPerformance> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -296,22 +261,20 @@ mixin _$StudentPerformance {
 /// @nodoc
 abstract class $StudentPerformanceCopyWith<$Res> {
   factory $StudentPerformanceCopyWith(
-    StudentPerformance value,
-    $Res Function(StudentPerformance) then,
-  ) = _$StudentPerformanceCopyWithImpl<$Res, StudentPerformance>;
+          StudentPerformance value, $Res Function(StudentPerformance) then) =
+      _$StudentPerformanceCopyWithImpl<$Res, StudentPerformance>;
   @useResult
-  $Res call({
-    String studentId,
-    String name,
-    String email,
-    String phone,
-    String university,
-    int resumeScore,
-    int interviewScore,
-    int writingScore,
-    int careerScore,
-    List<ModuleProgress> moduleProgress,
-  });
+  $Res call(
+      {String studentId,
+      String name,
+      String email,
+      String phone,
+      String university,
+      int resumeScore,
+      int interviewScore,
+      int writingScore,
+      int careerScore,
+      List<ModuleProgress> moduleProgress});
 }
 
 /// @nodoc
@@ -324,8 +287,6 @@ class _$StudentPerformanceCopyWithImpl<$Res, $Val extends StudentPerformance>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of StudentPerformance
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -340,88 +301,80 @@ class _$StudentPerformanceCopyWithImpl<$Res, $Val extends StudentPerformance>
     Object? careerScore = null,
     Object? moduleProgress = null,
   }) {
-    return _then(
-      _value.copyWith(
-            studentId: null == studentId
-                ? _value.studentId
-                : studentId // ignore: cast_nullable_to_non_nullable
-                      as String,
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            email: null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                      as String,
-            phone: null == phone
-                ? _value.phone
-                : phone // ignore: cast_nullable_to_non_nullable
-                      as String,
-            university: null == university
-                ? _value.university
-                : university // ignore: cast_nullable_to_non_nullable
-                      as String,
-            resumeScore: null == resumeScore
-                ? _value.resumeScore
-                : resumeScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            interviewScore: null == interviewScore
-                ? _value.interviewScore
-                : interviewScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            writingScore: null == writingScore
-                ? _value.writingScore
-                : writingScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            careerScore: null == careerScore
-                ? _value.careerScore
-                : careerScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            moduleProgress: null == moduleProgress
-                ? _value.moduleProgress
-                : moduleProgress // ignore: cast_nullable_to_non_nullable
-                      as List<ModuleProgress>,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      studentId: null == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      university: null == university
+          ? _value.university
+          : university // ignore: cast_nullable_to_non_nullable
+              as String,
+      resumeScore: null == resumeScore
+          ? _value.resumeScore
+          : resumeScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      interviewScore: null == interviewScore
+          ? _value.interviewScore
+          : interviewScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      writingScore: null == writingScore
+          ? _value.writingScore
+          : writingScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      careerScore: null == careerScore
+          ? _value.careerScore
+          : careerScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      moduleProgress: null == moduleProgress
+          ? _value.moduleProgress
+          : moduleProgress // ignore: cast_nullable_to_non_nullable
+              as List<ModuleProgress>,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$StudentPerformanceImplCopyWith<$Res>
     implements $StudentPerformanceCopyWith<$Res> {
-  factory _$$StudentPerformanceImplCopyWith(
-    _$StudentPerformanceImpl value,
-    $Res Function(_$StudentPerformanceImpl) then,
-  ) = __$$StudentPerformanceImplCopyWithImpl<$Res>;
+  factory _$$StudentPerformanceImplCopyWith(_$StudentPerformanceImpl value,
+          $Res Function(_$StudentPerformanceImpl) then) =
+      __$$StudentPerformanceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String studentId,
-    String name,
-    String email,
-    String phone,
-    String university,
-    int resumeScore,
-    int interviewScore,
-    int writingScore,
-    int careerScore,
-    List<ModuleProgress> moduleProgress,
-  });
+  $Res call(
+      {String studentId,
+      String name,
+      String email,
+      String phone,
+      String university,
+      int resumeScore,
+      int interviewScore,
+      int writingScore,
+      int careerScore,
+      List<ModuleProgress> moduleProgress});
 }
 
 /// @nodoc
 class __$$StudentPerformanceImplCopyWithImpl<$Res>
     extends _$StudentPerformanceCopyWithImpl<$Res, _$StudentPerformanceImpl>
     implements _$$StudentPerformanceImplCopyWith<$Res> {
-  __$$StudentPerformanceImplCopyWithImpl(
-    _$StudentPerformanceImpl _value,
-    $Res Function(_$StudentPerformanceImpl) _then,
-  ) : super(_value, _then);
+  __$$StudentPerformanceImplCopyWithImpl(_$StudentPerformanceImpl _value,
+      $Res Function(_$StudentPerformanceImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of StudentPerformance
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -436,68 +389,66 @@ class __$$StudentPerformanceImplCopyWithImpl<$Res>
     Object? careerScore = null,
     Object? moduleProgress = null,
   }) {
-    return _then(
-      _$StudentPerformanceImpl(
-        studentId: null == studentId
-            ? _value.studentId
-            : studentId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        email: null == email
-            ? _value.email
-            : email // ignore: cast_nullable_to_non_nullable
-                  as String,
-        phone: null == phone
-            ? _value.phone
-            : phone // ignore: cast_nullable_to_non_nullable
-                  as String,
-        university: null == university
-            ? _value.university
-            : university // ignore: cast_nullable_to_non_nullable
-                  as String,
-        resumeScore: null == resumeScore
-            ? _value.resumeScore
-            : resumeScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        interviewScore: null == interviewScore
-            ? _value.interviewScore
-            : interviewScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        writingScore: null == writingScore
-            ? _value.writingScore
-            : writingScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        careerScore: null == careerScore
-            ? _value.careerScore
-            : careerScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        moduleProgress: null == moduleProgress
-            ? _value._moduleProgress
-            : moduleProgress // ignore: cast_nullable_to_non_nullable
-                  as List<ModuleProgress>,
-      ),
-    );
+    return _then(_$StudentPerformanceImpl(
+      studentId: null == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      university: null == university
+          ? _value.university
+          : university // ignore: cast_nullable_to_non_nullable
+              as String,
+      resumeScore: null == resumeScore
+          ? _value.resumeScore
+          : resumeScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      interviewScore: null == interviewScore
+          ? _value.interviewScore
+          : interviewScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      writingScore: null == writingScore
+          ? _value.writingScore
+          : writingScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      careerScore: null == careerScore
+          ? _value.careerScore
+          : careerScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      moduleProgress: null == moduleProgress
+          ? _value._moduleProgress
+          : moduleProgress // ignore: cast_nullable_to_non_nullable
+              as List<ModuleProgress>,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$StudentPerformanceImpl implements _StudentPerformance {
-  const _$StudentPerformanceImpl({
-    required this.studentId,
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.university,
-    required this.resumeScore,
-    required this.interviewScore,
-    required this.writingScore,
-    required this.careerScore,
-    required final List<ModuleProgress> moduleProgress,
-  }) : _moduleProgress = moduleProgress;
+  const _$StudentPerformanceImpl(
+      {required this.studentId,
+      required this.name,
+      required this.email,
+      required this.phone,
+      required this.university,
+      required this.resumeScore,
+      required this.interviewScore,
+      required this.writingScore,
+      required this.careerScore,
+      required final List<ModuleProgress> moduleProgress})
+      : _moduleProgress = moduleProgress;
 
   @override
   final String studentId;
@@ -550,52 +501,45 @@ class _$StudentPerformanceImpl implements _StudentPerformance {
                 other.writingScore == writingScore) &&
             (identical(other.careerScore, careerScore) ||
                 other.careerScore == careerScore) &&
-            const DeepCollectionEquality().equals(
-              other._moduleProgress,
-              _moduleProgress,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._moduleProgress, _moduleProgress));
   }
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    studentId,
-    name,
-    email,
-    phone,
-    university,
-    resumeScore,
-    interviewScore,
-    writingScore,
-    careerScore,
-    const DeepCollectionEquality().hash(_moduleProgress),
-  );
+      runtimeType,
+      studentId,
+      name,
+      email,
+      phone,
+      university,
+      resumeScore,
+      interviewScore,
+      writingScore,
+      careerScore,
+      const DeepCollectionEquality().hash(_moduleProgress));
 
-  /// Create a copy of StudentPerformance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$StudentPerformanceImplCopyWith<_$StudentPerformanceImpl> get copyWith =>
       __$$StudentPerformanceImplCopyWithImpl<_$StudentPerformanceImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _StudentPerformance implements StudentPerformance {
-  const factory _StudentPerformance({
-    required final String studentId,
-    required final String name,
-    required final String email,
-    required final String phone,
-    required final String university,
-    required final int resumeScore,
-    required final int interviewScore,
-    required final int writingScore,
-    required final int careerScore,
-    required final List<ModuleProgress> moduleProgress,
-  }) = _$StudentPerformanceImpl;
+  const factory _StudentPerformance(
+          {required final String studentId,
+          required final String name,
+          required final String email,
+          required final String phone,
+          required final String university,
+          required final int resumeScore,
+          required final int interviewScore,
+          required final int writingScore,
+          required final int careerScore,
+          required final List<ModuleProgress> moduleProgress}) =
+      _$StudentPerformanceImpl;
 
   @override
   String get studentId;
@@ -617,11 +561,8 @@ abstract class _StudentPerformance implements StudentPerformance {
   int get careerScore;
   @override
   List<ModuleProgress> get moduleProgress;
-
-  /// Create a copy of StudentPerformance
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$StudentPerformanceImplCopyWith<_$StudentPerformanceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -634,9 +575,7 @@ mixin _$ModuleProgress {
       throw _privateConstructorUsedError; // 'Completed', 'In Progress', 'Not Started'
   DateTime get lastUpdated => throw _privateConstructorUsedError;
 
-  /// Create a copy of ModuleProgress
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ModuleProgressCopyWith<ModuleProgress> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -644,16 +583,14 @@ mixin _$ModuleProgress {
 /// @nodoc
 abstract class $ModuleProgressCopyWith<$Res> {
   factory $ModuleProgressCopyWith(
-    ModuleProgress value,
-    $Res Function(ModuleProgress) then,
-  ) = _$ModuleProgressCopyWithImpl<$Res, ModuleProgress>;
+          ModuleProgress value, $Res Function(ModuleProgress) then) =
+      _$ModuleProgressCopyWithImpl<$Res, ModuleProgress>;
   @useResult
-  $Res call({
-    String moduleName,
-    int completionPercentage,
-    String status,
-    DateTime lastUpdated,
-  });
+  $Res call(
+      {String moduleName,
+      int completionPercentage,
+      String status,
+      DateTime lastUpdated});
 }
 
 /// @nodoc
@@ -666,8 +603,6 @@ class _$ModuleProgressCopyWithImpl<$Res, $Val extends ModuleProgress>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ModuleProgress
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -676,45 +611,40 @@ class _$ModuleProgressCopyWithImpl<$Res, $Val extends ModuleProgress>
     Object? status = null,
     Object? lastUpdated = null,
   }) {
-    return _then(
-      _value.copyWith(
-            moduleName: null == moduleName
-                ? _value.moduleName
-                : moduleName // ignore: cast_nullable_to_non_nullable
-                      as String,
-            completionPercentage: null == completionPercentage
-                ? _value.completionPercentage
-                : completionPercentage // ignore: cast_nullable_to_non_nullable
-                      as int,
-            status: null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                      as String,
-            lastUpdated: null == lastUpdated
-                ? _value.lastUpdated
-                : lastUpdated // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      moduleName: null == moduleName
+          ? _value.moduleName
+          : moduleName // ignore: cast_nullable_to_non_nullable
+              as String,
+      completionPercentage: null == completionPercentage
+          ? _value.completionPercentage
+          : completionPercentage // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastUpdated: null == lastUpdated
+          ? _value.lastUpdated
+          : lastUpdated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$ModuleProgressImplCopyWith<$Res>
     implements $ModuleProgressCopyWith<$Res> {
-  factory _$$ModuleProgressImplCopyWith(
-    _$ModuleProgressImpl value,
-    $Res Function(_$ModuleProgressImpl) then,
-  ) = __$$ModuleProgressImplCopyWithImpl<$Res>;
+  factory _$$ModuleProgressImplCopyWith(_$ModuleProgressImpl value,
+          $Res Function(_$ModuleProgressImpl) then) =
+      __$$ModuleProgressImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String moduleName,
-    int completionPercentage,
-    String status,
-    DateTime lastUpdated,
-  });
+  $Res call(
+      {String moduleName,
+      int completionPercentage,
+      String status,
+      DateTime lastUpdated});
 }
 
 /// @nodoc
@@ -722,12 +652,9 @@ class __$$ModuleProgressImplCopyWithImpl<$Res>
     extends _$ModuleProgressCopyWithImpl<$Res, _$ModuleProgressImpl>
     implements _$$ModuleProgressImplCopyWith<$Res> {
   __$$ModuleProgressImplCopyWithImpl(
-    _$ModuleProgressImpl _value,
-    $Res Function(_$ModuleProgressImpl) _then,
-  ) : super(_value, _then);
+      _$ModuleProgressImpl _value, $Res Function(_$ModuleProgressImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of ModuleProgress
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -736,38 +663,35 @@ class __$$ModuleProgressImplCopyWithImpl<$Res>
     Object? status = null,
     Object? lastUpdated = null,
   }) {
-    return _then(
-      _$ModuleProgressImpl(
-        moduleName: null == moduleName
-            ? _value.moduleName
-            : moduleName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        completionPercentage: null == completionPercentage
-            ? _value.completionPercentage
-            : completionPercentage // ignore: cast_nullable_to_non_nullable
-                  as int,
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                  as String,
-        lastUpdated: null == lastUpdated
-            ? _value.lastUpdated
-            : lastUpdated // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-      ),
-    );
+    return _then(_$ModuleProgressImpl(
+      moduleName: null == moduleName
+          ? _value.moduleName
+          : moduleName // ignore: cast_nullable_to_non_nullable
+              as String,
+      completionPercentage: null == completionPercentage
+          ? _value.completionPercentage
+          : completionPercentage // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastUpdated: null == lastUpdated
+          ? _value.lastUpdated
+          : lastUpdated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$ModuleProgressImpl implements _ModuleProgress {
-  const _$ModuleProgressImpl({
-    required this.moduleName,
-    required this.completionPercentage,
-    required this.status,
-    required this.lastUpdated,
-  });
+  const _$ModuleProgressImpl(
+      {required this.moduleName,
+      required this.completionPercentage,
+      required this.status,
+      required this.lastUpdated});
 
   @override
   final String moduleName;
@@ -775,7 +699,7 @@ class _$ModuleProgressImpl implements _ModuleProgress {
   final int completionPercentage;
   @override
   final String status;
-  // 'Completed', 'In Progress', 'Not Started'
+// 'Completed', 'In Progress', 'Not Started'
   @override
   final DateTime lastUpdated;
 
@@ -800,46 +724,33 @@ class _$ModuleProgressImpl implements _ModuleProgress {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    moduleName,
-    completionPercentage,
-    status,
-    lastUpdated,
-  );
+      runtimeType, moduleName, completionPercentage, status, lastUpdated);
 
-  /// Create a copy of ModuleProgress
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ModuleProgressImplCopyWith<_$ModuleProgressImpl> get copyWith =>
       __$$ModuleProgressImplCopyWithImpl<_$ModuleProgressImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _ModuleProgress implements ModuleProgress {
-  const factory _ModuleProgress({
-    required final String moduleName,
-    required final int completionPercentage,
-    required final String status,
-    required final DateTime lastUpdated,
-  }) = _$ModuleProgressImpl;
+  const factory _ModuleProgress(
+      {required final String moduleName,
+      required final int completionPercentage,
+      required final String status,
+      required final DateTime lastUpdated}) = _$ModuleProgressImpl;
 
   @override
   String get moduleName;
   @override
   int get completionPercentage;
   @override
-  String get status; // 'Completed', 'In Progress', 'Not Started'
-  @override
+  String get status;
+  @override // 'Completed', 'In Progress', 'Not Started'
   DateTime get lastUpdated;
-
-  /// Create a copy of ModuleProgress
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ModuleProgressImplCopyWith<_$ModuleProgressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

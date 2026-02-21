@@ -9,8 +9,8 @@ class DioClient {
       BaseOptions(
         baseUrl: 'https://api.careeranalyzer.dev/v1',
         // TODO: Replace with actual API base URL on backend integration
-        connectTimeout: const Duration(seconds: 30),
-        receiveTimeout: const Duration(seconds: 30),
+        connectTimeout: const Duration(minutes: 6),
+        receiveTimeout: const Duration(minutes: 6),
         contentType: 'application/json',
       ),
     );

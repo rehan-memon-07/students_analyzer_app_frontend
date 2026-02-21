@@ -30,9 +30,10 @@ abstract class ResumeRepository {
 class ApiResumeRepository implements ResumeRepository {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://10.60.248.60:8080',
-      connectTimeout: const Duration(seconds: 20),
-      receiveTimeout: const Duration(seconds: 30),
+      baseUrl: 'https://students-analyzer-app-backend.onrender.com',
+      connectTimeout: const Duration(minutes: 6),
+      receiveTimeout: const Duration(minutes: 6),
+      sendTimeout: const Duration(minutes: 6),
       validateStatus: (status) => status != null && status < 500,
     ),
   );
@@ -84,17 +85,23 @@ class ApiResumeRepository implements ResumeRepository {
     final response = await _dio.post(
       '/resume/upload',
       data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      // 🚫 DO NOT set contentType manually
+      options: Options(
+        headers: {
+          'Accept': 'application/json',
+        },
+      ),
     );
 
     final root = _normalize(response.data);
 
     if (root['success'] != true) {
-      throw Exception(root['message'] ?? 'Upload failed');
+      throw Exception(root['error'] ?? 'Upload failed');
     }
 
-    return root['data'].toString();
+    return root['data'].toString(); // resumeId
   }
+
 
   // ======================
   // EXTRACT TEXT (MANDATORY)

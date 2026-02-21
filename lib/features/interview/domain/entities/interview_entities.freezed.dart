@@ -12,8 +12,7 @@ part of 'interview_entities.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$InterviewSession {
@@ -27,9 +26,7 @@ mixin _$InterviewSession {
   List<InterviewQuestion> get questions => throw _privateConstructorUsedError;
   String? get status => throw _privateConstructorUsedError;
 
-  /// Create a copy of InterviewSession
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $InterviewSessionCopyWith<InterviewSession> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -37,20 +34,18 @@ mixin _$InterviewSession {
 /// @nodoc
 abstract class $InterviewSessionCopyWith<$Res> {
   factory $InterviewSessionCopyWith(
-    InterviewSession value,
-    $Res Function(InterviewSession) then,
-  ) = _$InterviewSessionCopyWithImpl<$Res, InterviewSession>;
+          InterviewSession value, $Res Function(InterviewSession) then) =
+      _$InterviewSessionCopyWithImpl<$Res, InterviewSession>;
   @useResult
-  $Res call({
-    String sessionId,
-    String jobRole,
-    String difficulty,
-    DateTime startedAt,
-    int totalQuestions,
-    int currentQuestionIndex,
-    List<InterviewQuestion> questions,
-    String? status,
-  });
+  $Res call(
+      {String sessionId,
+      String jobRole,
+      String difficulty,
+      DateTime startedAt,
+      int totalQuestions,
+      int currentQuestionIndex,
+      List<InterviewQuestion> questions,
+      String? status});
 }
 
 /// @nodoc
@@ -63,8 +58,6 @@ class _$InterviewSessionCopyWithImpl<$Res, $Val extends InterviewSession>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of InterviewSession
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -77,78 +70,70 @@ class _$InterviewSessionCopyWithImpl<$Res, $Val extends InterviewSession>
     Object? questions = null,
     Object? status = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-            sessionId: null == sessionId
-                ? _value.sessionId
-                : sessionId // ignore: cast_nullable_to_non_nullable
-                      as String,
-            jobRole: null == jobRole
-                ? _value.jobRole
-                : jobRole // ignore: cast_nullable_to_non_nullable
-                      as String,
-            difficulty: null == difficulty
-                ? _value.difficulty
-                : difficulty // ignore: cast_nullable_to_non_nullable
-                      as String,
-            startedAt: null == startedAt
-                ? _value.startedAt
-                : startedAt // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-            totalQuestions: null == totalQuestions
-                ? _value.totalQuestions
-                : totalQuestions // ignore: cast_nullable_to_non_nullable
-                      as int,
-            currentQuestionIndex: null == currentQuestionIndex
-                ? _value.currentQuestionIndex
-                : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            questions: null == questions
-                ? _value.questions
-                : questions // ignore: cast_nullable_to_non_nullable
-                      as List<InterviewQuestion>,
-            status: freezed == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                      as String?,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      jobRole: null == jobRole
+          ? _value.jobRole
+          : jobRole // ignore: cast_nullable_to_non_nullable
+              as String,
+      difficulty: null == difficulty
+          ? _value.difficulty
+          : difficulty // ignore: cast_nullable_to_non_nullable
+              as String,
+      startedAt: null == startedAt
+          ? _value.startedAt
+          : startedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      totalQuestions: null == totalQuestions
+          ? _value.totalQuestions
+          : totalQuestions // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentQuestionIndex: null == currentQuestionIndex
+          ? _value.currentQuestionIndex
+          : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      questions: null == questions
+          ? _value.questions
+          : questions // ignore: cast_nullable_to_non_nullable
+              as List<InterviewQuestion>,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$InterviewSessionImplCopyWith<$Res>
     implements $InterviewSessionCopyWith<$Res> {
-  factory _$$InterviewSessionImplCopyWith(
-    _$InterviewSessionImpl value,
-    $Res Function(_$InterviewSessionImpl) then,
-  ) = __$$InterviewSessionImplCopyWithImpl<$Res>;
+  factory _$$InterviewSessionImplCopyWith(_$InterviewSessionImpl value,
+          $Res Function(_$InterviewSessionImpl) then) =
+      __$$InterviewSessionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String sessionId,
-    String jobRole,
-    String difficulty,
-    DateTime startedAt,
-    int totalQuestions,
-    int currentQuestionIndex,
-    List<InterviewQuestion> questions,
-    String? status,
-  });
+  $Res call(
+      {String sessionId,
+      String jobRole,
+      String difficulty,
+      DateTime startedAt,
+      int totalQuestions,
+      int currentQuestionIndex,
+      List<InterviewQuestion> questions,
+      String? status});
 }
 
 /// @nodoc
 class __$$InterviewSessionImplCopyWithImpl<$Res>
     extends _$InterviewSessionCopyWithImpl<$Res, _$InterviewSessionImpl>
     implements _$$InterviewSessionImplCopyWith<$Res> {
-  __$$InterviewSessionImplCopyWithImpl(
-    _$InterviewSessionImpl _value,
-    $Res Function(_$InterviewSessionImpl) _then,
-  ) : super(_value, _then);
+  __$$InterviewSessionImplCopyWithImpl(_$InterviewSessionImpl _value,
+      $Res Function(_$InterviewSessionImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of InterviewSession
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,58 +146,56 @@ class __$$InterviewSessionImplCopyWithImpl<$Res>
     Object? questions = null,
     Object? status = freezed,
   }) {
-    return _then(
-      _$InterviewSessionImpl(
-        sessionId: null == sessionId
-            ? _value.sessionId
-            : sessionId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        jobRole: null == jobRole
-            ? _value.jobRole
-            : jobRole // ignore: cast_nullable_to_non_nullable
-                  as String,
-        difficulty: null == difficulty
-            ? _value.difficulty
-            : difficulty // ignore: cast_nullable_to_non_nullable
-                  as String,
-        startedAt: null == startedAt
-            ? _value.startedAt
-            : startedAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        totalQuestions: null == totalQuestions
-            ? _value.totalQuestions
-            : totalQuestions // ignore: cast_nullable_to_non_nullable
-                  as int,
-        currentQuestionIndex: null == currentQuestionIndex
-            ? _value.currentQuestionIndex
-            : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
-        questions: null == questions
-            ? _value._questions
-            : questions // ignore: cast_nullable_to_non_nullable
-                  as List<InterviewQuestion>,
-        status: freezed == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                  as String?,
-      ),
-    );
+    return _then(_$InterviewSessionImpl(
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      jobRole: null == jobRole
+          ? _value.jobRole
+          : jobRole // ignore: cast_nullable_to_non_nullable
+              as String,
+      difficulty: null == difficulty
+          ? _value.difficulty
+          : difficulty // ignore: cast_nullable_to_non_nullable
+              as String,
+      startedAt: null == startedAt
+          ? _value.startedAt
+          : startedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      totalQuestions: null == totalQuestions
+          ? _value.totalQuestions
+          : totalQuestions // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentQuestionIndex: null == currentQuestionIndex
+          ? _value.currentQuestionIndex
+          : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      questions: null == questions
+          ? _value._questions
+          : questions // ignore: cast_nullable_to_non_nullable
+              as List<InterviewQuestion>,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$InterviewSessionImpl implements _InterviewSession {
-  const _$InterviewSessionImpl({
-    required this.sessionId,
-    required this.jobRole,
-    required this.difficulty,
-    required this.startedAt,
-    required this.totalQuestions,
-    required this.currentQuestionIndex,
-    required final List<InterviewQuestion> questions,
-    required this.status,
-  }) : _questions = questions;
+  const _$InterviewSessionImpl(
+      {required this.sessionId,
+      required this.jobRole,
+      required this.difficulty,
+      required this.startedAt,
+      required this.totalQuestions,
+      required this.currentQuestionIndex,
+      required final List<InterviewQuestion> questions,
+      required this.status})
+      : _questions = questions;
 
   @override
   final String sessionId;
@@ -220,7 +203,7 @@ class _$InterviewSessionImpl implements _InterviewSession {
   final String jobRole;
   @override
   final String difficulty;
-  // 'Entry', 'Mid', 'Senior'
+// 'Entry', 'Mid', 'Senior'
   @override
   final DateTime startedAt;
   @override
@@ -259,57 +242,49 @@ class _$InterviewSessionImpl implements _InterviewSession {
                 other.totalQuestions == totalQuestions) &&
             (identical(other.currentQuestionIndex, currentQuestionIndex) ||
                 other.currentQuestionIndex == currentQuestionIndex) &&
-            const DeepCollectionEquality().equals(
-              other._questions,
-              _questions,
-            ) &&
+            const DeepCollectionEquality()
+                .equals(other._questions, _questions) &&
             (identical(other.status, status) || other.status == status));
   }
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    sessionId,
-    jobRole,
-    difficulty,
-    startedAt,
-    totalQuestions,
-    currentQuestionIndex,
-    const DeepCollectionEquality().hash(_questions),
-    status,
-  );
+      runtimeType,
+      sessionId,
+      jobRole,
+      difficulty,
+      startedAt,
+      totalQuestions,
+      currentQuestionIndex,
+      const DeepCollectionEquality().hash(_questions),
+      status);
 
-  /// Create a copy of InterviewSession
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InterviewSessionImplCopyWith<_$InterviewSessionImpl> get copyWith =>
       __$$InterviewSessionImplCopyWithImpl<_$InterviewSessionImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _InterviewSession implements InterviewSession {
-  const factory _InterviewSession({
-    required final String sessionId,
-    required final String jobRole,
-    required final String difficulty,
-    required final DateTime startedAt,
-    required final int totalQuestions,
-    required final int currentQuestionIndex,
-    required final List<InterviewQuestion> questions,
-    required final String? status,
-  }) = _$InterviewSessionImpl;
+  const factory _InterviewSession(
+      {required final String sessionId,
+      required final String jobRole,
+      required final String difficulty,
+      required final DateTime startedAt,
+      required final int totalQuestions,
+      required final int currentQuestionIndex,
+      required final List<InterviewQuestion> questions,
+      required final String? status}) = _$InterviewSessionImpl;
 
   @override
   String get sessionId;
   @override
   String get jobRole;
   @override
-  String get difficulty; // 'Entry', 'Mid', 'Senior'
-  @override
+  String get difficulty;
+  @override // 'Entry', 'Mid', 'Senior'
   DateTime get startedAt;
   @override
   int get totalQuestions;
@@ -319,11 +294,8 @@ abstract class _InterviewSession implements InterviewSession {
   List<InterviewQuestion> get questions;
   @override
   String? get status;
-
-  /// Create a copy of InterviewSession
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$InterviewSessionImplCopyWith<_$InterviewSessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -335,9 +307,7 @@ mixin _$InterviewQuestion {
   String? get userAnswer => throw _privateConstructorUsedError;
   bool get answered => throw _privateConstructorUsedError;
 
-  /// Create a copy of InterviewQuestion
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $InterviewQuestionCopyWith<InterviewQuestion> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -345,9 +315,8 @@ mixin _$InterviewQuestion {
 /// @nodoc
 abstract class $InterviewQuestionCopyWith<$Res> {
   factory $InterviewQuestionCopyWith(
-    InterviewQuestion value,
-    $Res Function(InterviewQuestion) then,
-  ) = _$InterviewQuestionCopyWithImpl<$Res, InterviewQuestion>;
+          InterviewQuestion value, $Res Function(InterviewQuestion) then) =
+      _$InterviewQuestionCopyWithImpl<$Res, InterviewQuestion>;
   @useResult
   $Res call({String id, String text, String? userAnswer, bool answered});
 }
@@ -362,8 +331,6 @@ class _$InterviewQuestionCopyWithImpl<$Res, $Val extends InterviewQuestion>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of InterviewQuestion
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -372,37 +339,33 @@ class _$InterviewQuestionCopyWithImpl<$Res, $Val extends InterviewQuestion>
     Object? userAnswer = freezed,
     Object? answered = null,
   }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as String,
-            text: null == text
-                ? _value.text
-                : text // ignore: cast_nullable_to_non_nullable
-                      as String,
-            userAnswer: freezed == userAnswer
-                ? _value.userAnswer
-                : userAnswer // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            answered: null == answered
-                ? _value.answered
-                : answered // ignore: cast_nullable_to_non_nullable
-                      as bool,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      userAnswer: freezed == userAnswer
+          ? _value.userAnswer
+          : userAnswer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      answered: null == answered
+          ? _value.answered
+          : answered // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$InterviewQuestionImplCopyWith<$Res>
     implements $InterviewQuestionCopyWith<$Res> {
-  factory _$$InterviewQuestionImplCopyWith(
-    _$InterviewQuestionImpl value,
-    $Res Function(_$InterviewQuestionImpl) then,
-  ) = __$$InterviewQuestionImplCopyWithImpl<$Res>;
+  factory _$$InterviewQuestionImplCopyWith(_$InterviewQuestionImpl value,
+          $Res Function(_$InterviewQuestionImpl) then) =
+      __$$InterviewQuestionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String text, String? userAnswer, bool answered});
@@ -412,13 +375,10 @@ abstract class _$$InterviewQuestionImplCopyWith<$Res>
 class __$$InterviewQuestionImplCopyWithImpl<$Res>
     extends _$InterviewQuestionCopyWithImpl<$Res, _$InterviewQuestionImpl>
     implements _$$InterviewQuestionImplCopyWith<$Res> {
-  __$$InterviewQuestionImplCopyWithImpl(
-    _$InterviewQuestionImpl _value,
-    $Res Function(_$InterviewQuestionImpl) _then,
-  ) : super(_value, _then);
+  __$$InterviewQuestionImplCopyWithImpl(_$InterviewQuestionImpl _value,
+      $Res Function(_$InterviewQuestionImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of InterviewQuestion
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -427,38 +387,35 @@ class __$$InterviewQuestionImplCopyWithImpl<$Res>
     Object? userAnswer = freezed,
     Object? answered = null,
   }) {
-    return _then(
-      _$InterviewQuestionImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        text: null == text
-            ? _value.text
-            : text // ignore: cast_nullable_to_non_nullable
-                  as String,
-        userAnswer: freezed == userAnswer
-            ? _value.userAnswer
-            : userAnswer // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        answered: null == answered
-            ? _value.answered
-            : answered // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
+    return _then(_$InterviewQuestionImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      userAnswer: freezed == userAnswer
+          ? _value.userAnswer
+          : userAnswer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      answered: null == answered
+          ? _value.answered
+          : answered // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$InterviewQuestionImpl implements _InterviewQuestion {
-  const _$InterviewQuestionImpl({
-    required this.id,
-    required this.text,
-    required this.userAnswer,
-    required this.answered,
-  });
+  const _$InterviewQuestionImpl(
+      {required this.id,
+      required this.text,
+      required this.userAnswer,
+      required this.answered});
 
   @override
   final String id;
@@ -490,25 +447,20 @@ class _$InterviewQuestionImpl implements _InterviewQuestion {
   @override
   int get hashCode => Object.hash(runtimeType, id, text, userAnswer, answered);
 
-  /// Create a copy of InterviewQuestion
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InterviewQuestionImplCopyWith<_$InterviewQuestionImpl> get copyWith =>
       __$$InterviewQuestionImplCopyWithImpl<_$InterviewQuestionImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _InterviewQuestion implements InterviewQuestion {
-  const factory _InterviewQuestion({
-    required final String id,
-    required final String text,
-    required final String? userAnswer,
-    required final bool answered,
-  }) = _$InterviewQuestionImpl;
+  const factory _InterviewQuestion(
+      {required final String id,
+      required final String text,
+      required final String? userAnswer,
+      required final bool answered}) = _$InterviewQuestionImpl;
 
   @override
   String get id;
@@ -518,11 +470,8 @@ abstract class _InterviewQuestion implements InterviewQuestion {
   String? get userAnswer;
   @override
   bool get answered;
-
-  /// Create a copy of InterviewQuestion
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$InterviewQuestionImplCopyWith<_$InterviewQuestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -540,9 +489,7 @@ mixin _$InterviewResult {
       throw _privateConstructorUsedError;
   String get overallFeedback => throw _privateConstructorUsedError;
 
-  /// Create a copy of InterviewResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $InterviewResultCopyWith<InterviewResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -550,21 +497,19 @@ mixin _$InterviewResult {
 /// @nodoc
 abstract class $InterviewResultCopyWith<$Res> {
   factory $InterviewResultCopyWith(
-    InterviewResult value,
-    $Res Function(InterviewResult) then,
-  ) = _$InterviewResultCopyWithImpl<$Res, InterviewResult>;
+          InterviewResult value, $Res Function(InterviewResult) then) =
+      _$InterviewResultCopyWithImpl<$Res, InterviewResult>;
   @useResult
-  $Res call({
-    String sessionId,
-    String jobRole,
-    String difficulty,
-    int totalScore,
-    int difficultyScore,
-    int confidenceScore,
-    DateTime completedAt,
-    List<QuestionFeedback> feedbackItems,
-    String overallFeedback,
-  });
+  $Res call(
+      {String sessionId,
+      String jobRole,
+      String difficulty,
+      int totalScore,
+      int difficultyScore,
+      int confidenceScore,
+      DateTime completedAt,
+      List<QuestionFeedback> feedbackItems,
+      String overallFeedback});
 }
 
 /// @nodoc
@@ -577,8 +522,6 @@ class _$InterviewResultCopyWithImpl<$Res, $Val extends InterviewResult>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of InterviewResult
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -592,70 +535,65 @@ class _$InterviewResultCopyWithImpl<$Res, $Val extends InterviewResult>
     Object? feedbackItems = null,
     Object? overallFeedback = null,
   }) {
-    return _then(
-      _value.copyWith(
-            sessionId: null == sessionId
-                ? _value.sessionId
-                : sessionId // ignore: cast_nullable_to_non_nullable
-                      as String,
-            jobRole: null == jobRole
-                ? _value.jobRole
-                : jobRole // ignore: cast_nullable_to_non_nullable
-                      as String,
-            difficulty: null == difficulty
-                ? _value.difficulty
-                : difficulty // ignore: cast_nullable_to_non_nullable
-                      as String,
-            totalScore: null == totalScore
-                ? _value.totalScore
-                : totalScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            difficultyScore: null == difficultyScore
-                ? _value.difficultyScore
-                : difficultyScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            confidenceScore: null == confidenceScore
-                ? _value.confidenceScore
-                : confidenceScore // ignore: cast_nullable_to_non_nullable
-                      as int,
-            completedAt: null == completedAt
-                ? _value.completedAt
-                : completedAt // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-            feedbackItems: null == feedbackItems
-                ? _value.feedbackItems
-                : feedbackItems // ignore: cast_nullable_to_non_nullable
-                      as List<QuestionFeedback>,
-            overallFeedback: null == overallFeedback
-                ? _value.overallFeedback
-                : overallFeedback // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      jobRole: null == jobRole
+          ? _value.jobRole
+          : jobRole // ignore: cast_nullable_to_non_nullable
+              as String,
+      difficulty: null == difficulty
+          ? _value.difficulty
+          : difficulty // ignore: cast_nullable_to_non_nullable
+              as String,
+      totalScore: null == totalScore
+          ? _value.totalScore
+          : totalScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      difficultyScore: null == difficultyScore
+          ? _value.difficultyScore
+          : difficultyScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      confidenceScore: null == confidenceScore
+          ? _value.confidenceScore
+          : confidenceScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      completedAt: null == completedAt
+          ? _value.completedAt
+          : completedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      feedbackItems: null == feedbackItems
+          ? _value.feedbackItems
+          : feedbackItems // ignore: cast_nullable_to_non_nullable
+              as List<QuestionFeedback>,
+      overallFeedback: null == overallFeedback
+          ? _value.overallFeedback
+          : overallFeedback // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$InterviewResultImplCopyWith<$Res>
     implements $InterviewResultCopyWith<$Res> {
-  factory _$$InterviewResultImplCopyWith(
-    _$InterviewResultImpl value,
-    $Res Function(_$InterviewResultImpl) then,
-  ) = __$$InterviewResultImplCopyWithImpl<$Res>;
+  factory _$$InterviewResultImplCopyWith(_$InterviewResultImpl value,
+          $Res Function(_$InterviewResultImpl) then) =
+      __$$InterviewResultImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String sessionId,
-    String jobRole,
-    String difficulty,
-    int totalScore,
-    int difficultyScore,
-    int confidenceScore,
-    DateTime completedAt,
-    List<QuestionFeedback> feedbackItems,
-    String overallFeedback,
-  });
+  $Res call(
+      {String sessionId,
+      String jobRole,
+      String difficulty,
+      int totalScore,
+      int difficultyScore,
+      int confidenceScore,
+      DateTime completedAt,
+      List<QuestionFeedback> feedbackItems,
+      String overallFeedback});
 }
 
 /// @nodoc
@@ -663,12 +601,9 @@ class __$$InterviewResultImplCopyWithImpl<$Res>
     extends _$InterviewResultCopyWithImpl<$Res, _$InterviewResultImpl>
     implements _$$InterviewResultImplCopyWith<$Res> {
   __$$InterviewResultImplCopyWithImpl(
-    _$InterviewResultImpl _value,
-    $Res Function(_$InterviewResultImpl) _then,
-  ) : super(_value, _then);
+      _$InterviewResultImpl _value, $Res Function(_$InterviewResultImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of InterviewResult
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -682,63 +617,61 @@ class __$$InterviewResultImplCopyWithImpl<$Res>
     Object? feedbackItems = null,
     Object? overallFeedback = null,
   }) {
-    return _then(
-      _$InterviewResultImpl(
-        sessionId: null == sessionId
-            ? _value.sessionId
-            : sessionId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        jobRole: null == jobRole
-            ? _value.jobRole
-            : jobRole // ignore: cast_nullable_to_non_nullable
-                  as String,
-        difficulty: null == difficulty
-            ? _value.difficulty
-            : difficulty // ignore: cast_nullable_to_non_nullable
-                  as String,
-        totalScore: null == totalScore
-            ? _value.totalScore
-            : totalScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        difficultyScore: null == difficultyScore
-            ? _value.difficultyScore
-            : difficultyScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        confidenceScore: null == confidenceScore
-            ? _value.confidenceScore
-            : confidenceScore // ignore: cast_nullable_to_non_nullable
-                  as int,
-        completedAt: null == completedAt
-            ? _value.completedAt
-            : completedAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        feedbackItems: null == feedbackItems
-            ? _value._feedbackItems
-            : feedbackItems // ignore: cast_nullable_to_non_nullable
-                  as List<QuestionFeedback>,
-        overallFeedback: null == overallFeedback
-            ? _value.overallFeedback
-            : overallFeedback // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
+    return _then(_$InterviewResultImpl(
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      jobRole: null == jobRole
+          ? _value.jobRole
+          : jobRole // ignore: cast_nullable_to_non_nullable
+              as String,
+      difficulty: null == difficulty
+          ? _value.difficulty
+          : difficulty // ignore: cast_nullable_to_non_nullable
+              as String,
+      totalScore: null == totalScore
+          ? _value.totalScore
+          : totalScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      difficultyScore: null == difficultyScore
+          ? _value.difficultyScore
+          : difficultyScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      confidenceScore: null == confidenceScore
+          ? _value.confidenceScore
+          : confidenceScore // ignore: cast_nullable_to_non_nullable
+              as int,
+      completedAt: null == completedAt
+          ? _value.completedAt
+          : completedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      feedbackItems: null == feedbackItems
+          ? _value._feedbackItems
+          : feedbackItems // ignore: cast_nullable_to_non_nullable
+              as List<QuestionFeedback>,
+      overallFeedback: null == overallFeedback
+          ? _value.overallFeedback
+          : overallFeedback // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$InterviewResultImpl implements _InterviewResult {
-  const _$InterviewResultImpl({
-    required this.sessionId,
-    required this.jobRole,
-    required this.difficulty,
-    required this.totalScore,
-    required this.difficultyScore,
-    required this.confidenceScore,
-    required this.completedAt,
-    required final List<QuestionFeedback> feedbackItems,
-    required this.overallFeedback,
-  }) : _feedbackItems = feedbackItems;
+  const _$InterviewResultImpl(
+      {required this.sessionId,
+      required this.jobRole,
+      required this.difficulty,
+      required this.totalScore,
+      required this.difficultyScore,
+      required this.confidenceScore,
+      required this.completedAt,
+      required final List<QuestionFeedback> feedbackItems,
+      required this.overallFeedback})
+      : _feedbackItems = feedbackItems;
 
   @override
   final String sessionId;
@@ -750,10 +683,10 @@ class _$InterviewResultImpl implements _InterviewResult {
   final int totalScore;
   @override
   final int difficultyScore;
-  // 1-10
+// 1-10
   @override
   final int confidenceScore;
-  // 1-10
+// 1-10
   @override
   final DateTime completedAt;
   final List<QuestionFeedback> _feedbackItems;
@@ -790,52 +723,44 @@ class _$InterviewResultImpl implements _InterviewResult {
                 other.confidenceScore == confidenceScore) &&
             (identical(other.completedAt, completedAt) ||
                 other.completedAt == completedAt) &&
-            const DeepCollectionEquality().equals(
-              other._feedbackItems,
-              _feedbackItems,
-            ) &&
+            const DeepCollectionEquality()
+                .equals(other._feedbackItems, _feedbackItems) &&
             (identical(other.overallFeedback, overallFeedback) ||
                 other.overallFeedback == overallFeedback));
   }
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    sessionId,
-    jobRole,
-    difficulty,
-    totalScore,
-    difficultyScore,
-    confidenceScore,
-    completedAt,
-    const DeepCollectionEquality().hash(_feedbackItems),
-    overallFeedback,
-  );
+      runtimeType,
+      sessionId,
+      jobRole,
+      difficulty,
+      totalScore,
+      difficultyScore,
+      confidenceScore,
+      completedAt,
+      const DeepCollectionEquality().hash(_feedbackItems),
+      overallFeedback);
 
-  /// Create a copy of InterviewResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InterviewResultImplCopyWith<_$InterviewResultImpl> get copyWith =>
       __$$InterviewResultImplCopyWithImpl<_$InterviewResultImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _InterviewResult implements InterviewResult {
-  const factory _InterviewResult({
-    required final String sessionId,
-    required final String jobRole,
-    required final String difficulty,
-    required final int totalScore,
-    required final int difficultyScore,
-    required final int confidenceScore,
-    required final DateTime completedAt,
-    required final List<QuestionFeedback> feedbackItems,
-    required final String overallFeedback,
-  }) = _$InterviewResultImpl;
+  const factory _InterviewResult(
+      {required final String sessionId,
+      required final String jobRole,
+      required final String difficulty,
+      required final int totalScore,
+      required final int difficultyScore,
+      required final int confidenceScore,
+      required final DateTime completedAt,
+      required final List<QuestionFeedback> feedbackItems,
+      required final String overallFeedback}) = _$InterviewResultImpl;
 
   @override
   String get sessionId;
@@ -846,20 +771,17 @@ abstract class _InterviewResult implements InterviewResult {
   @override
   int get totalScore;
   @override
-  int get difficultyScore; // 1-10
-  @override
-  int get confidenceScore; // 1-10
-  @override
+  int get difficultyScore;
+  @override // 1-10
+  int get confidenceScore;
+  @override // 1-10
   DateTime get completedAt;
   @override
   List<QuestionFeedback> get feedbackItems;
   @override
   String get overallFeedback;
-
-  /// Create a copy of InterviewResult
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$InterviewResultImplCopyWith<_$InterviewResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -872,9 +794,7 @@ mixin _$QuestionFeedback {
   String get feedback => throw _privateConstructorUsedError;
   String get suggestion => throw _privateConstructorUsedError;
 
-  /// Create a copy of QuestionFeedback
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $QuestionFeedbackCopyWith<QuestionFeedback> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -882,17 +802,15 @@ mixin _$QuestionFeedback {
 /// @nodoc
 abstract class $QuestionFeedbackCopyWith<$Res> {
   factory $QuestionFeedbackCopyWith(
-    QuestionFeedback value,
-    $Res Function(QuestionFeedback) then,
-  ) = _$QuestionFeedbackCopyWithImpl<$Res, QuestionFeedback>;
+          QuestionFeedback value, $Res Function(QuestionFeedback) then) =
+      _$QuestionFeedbackCopyWithImpl<$Res, QuestionFeedback>;
   @useResult
-  $Res call({
-    String questionId,
-    String question,
-    String answer,
-    String feedback,
-    String suggestion,
-  });
+  $Res call(
+      {String questionId,
+      String question,
+      String answer,
+      String feedback,
+      String suggestion});
 }
 
 /// @nodoc
@@ -905,8 +823,6 @@ class _$QuestionFeedbackCopyWithImpl<$Res, $Val extends QuestionFeedback>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of QuestionFeedback
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -916,63 +832,55 @@ class _$QuestionFeedbackCopyWithImpl<$Res, $Val extends QuestionFeedback>
     Object? feedback = null,
     Object? suggestion = null,
   }) {
-    return _then(
-      _value.copyWith(
-            questionId: null == questionId
-                ? _value.questionId
-                : questionId // ignore: cast_nullable_to_non_nullable
-                      as String,
-            question: null == question
-                ? _value.question
-                : question // ignore: cast_nullable_to_non_nullable
-                      as String,
-            answer: null == answer
-                ? _value.answer
-                : answer // ignore: cast_nullable_to_non_nullable
-                      as String,
-            feedback: null == feedback
-                ? _value.feedback
-                : feedback // ignore: cast_nullable_to_non_nullable
-                      as String,
-            suggestion: null == suggestion
-                ? _value.suggestion
-                : suggestion // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      questionId: null == questionId
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      question: null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as String,
+      answer: null == answer
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as String,
+      feedback: null == feedback
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as String,
+      suggestion: null == suggestion
+          ? _value.suggestion
+          : suggestion // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$QuestionFeedbackImplCopyWith<$Res>
     implements $QuestionFeedbackCopyWith<$Res> {
-  factory _$$QuestionFeedbackImplCopyWith(
-    _$QuestionFeedbackImpl value,
-    $Res Function(_$QuestionFeedbackImpl) then,
-  ) = __$$QuestionFeedbackImplCopyWithImpl<$Res>;
+  factory _$$QuestionFeedbackImplCopyWith(_$QuestionFeedbackImpl value,
+          $Res Function(_$QuestionFeedbackImpl) then) =
+      __$$QuestionFeedbackImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String questionId,
-    String question,
-    String answer,
-    String feedback,
-    String suggestion,
-  });
+  $Res call(
+      {String questionId,
+      String question,
+      String answer,
+      String feedback,
+      String suggestion});
 }
 
 /// @nodoc
 class __$$QuestionFeedbackImplCopyWithImpl<$Res>
     extends _$QuestionFeedbackCopyWithImpl<$Res, _$QuestionFeedbackImpl>
     implements _$$QuestionFeedbackImplCopyWith<$Res> {
-  __$$QuestionFeedbackImplCopyWithImpl(
-    _$QuestionFeedbackImpl _value,
-    $Res Function(_$QuestionFeedbackImpl) _then,
-  ) : super(_value, _then);
+  __$$QuestionFeedbackImplCopyWithImpl(_$QuestionFeedbackImpl _value,
+      $Res Function(_$QuestionFeedbackImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of QuestionFeedback
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -982,43 +890,40 @@ class __$$QuestionFeedbackImplCopyWithImpl<$Res>
     Object? feedback = null,
     Object? suggestion = null,
   }) {
-    return _then(
-      _$QuestionFeedbackImpl(
-        questionId: null == questionId
-            ? _value.questionId
-            : questionId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        question: null == question
-            ? _value.question
-            : question // ignore: cast_nullable_to_non_nullable
-                  as String,
-        answer: null == answer
-            ? _value.answer
-            : answer // ignore: cast_nullable_to_non_nullable
-                  as String,
-        feedback: null == feedback
-            ? _value.feedback
-            : feedback // ignore: cast_nullable_to_non_nullable
-                  as String,
-        suggestion: null == suggestion
-            ? _value.suggestion
-            : suggestion // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
+    return _then(_$QuestionFeedbackImpl(
+      questionId: null == questionId
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      question: null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as String,
+      answer: null == answer
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as String,
+      feedback: null == feedback
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as String,
+      suggestion: null == suggestion
+          ? _value.suggestion
+          : suggestion // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$QuestionFeedbackImpl implements _QuestionFeedback {
-  const _$QuestionFeedbackImpl({
-    required this.questionId,
-    required this.question,
-    required this.answer,
-    required this.feedback,
-    required this.suggestion,
-  });
+  const _$QuestionFeedbackImpl(
+      {required this.questionId,
+      required this.question,
+      required this.answer,
+      required this.feedback,
+      required this.suggestion});
 
   @override
   final String questionId;
@@ -1054,34 +959,23 @@ class _$QuestionFeedbackImpl implements _QuestionFeedback {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    questionId,
-    question,
-    answer,
-    feedback,
-    suggestion,
-  );
+      runtimeType, questionId, question, answer, feedback, suggestion);
 
-  /// Create a copy of QuestionFeedback
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$QuestionFeedbackImplCopyWith<_$QuestionFeedbackImpl> get copyWith =>
       __$$QuestionFeedbackImplCopyWithImpl<_$QuestionFeedbackImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _QuestionFeedback implements QuestionFeedback {
-  const factory _QuestionFeedback({
-    required final String questionId,
-    required final String question,
-    required final String answer,
-    required final String feedback,
-    required final String suggestion,
-  }) = _$QuestionFeedbackImpl;
+  const factory _QuestionFeedback(
+      {required final String questionId,
+      required final String question,
+      required final String answer,
+      required final String feedback,
+      required final String suggestion}) = _$QuestionFeedbackImpl;
 
   @override
   String get questionId;
@@ -1093,11 +987,8 @@ abstract class _QuestionFeedback implements QuestionFeedback {
   String get feedback;
   @override
   String get suggestion;
-
-  /// Create a copy of QuestionFeedback
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$QuestionFeedbackImplCopyWith<_$QuestionFeedbackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

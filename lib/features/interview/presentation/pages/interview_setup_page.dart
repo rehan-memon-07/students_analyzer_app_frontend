@@ -5,6 +5,9 @@ import 'package:student_analyzer_app/core/theme/app_theme.dart';
 import 'package:student_analyzer_app/core/utils/responsive_helper.dart';
 import 'package:student_analyzer_app/features/interview/presentation/providers/interview_provider.dart';
 
+import '../../../resume/presentation/providers/resume_provider.dart';
+import '../../../session/session_provider.dart';
+
 class InterviewSetupPage extends ConsumerStatefulWidget {
   const InterviewSetupPage({Key? key}) : super(key: key);
 
@@ -25,21 +28,40 @@ class _InterviewSetupPageState extends ConsumerState<InterviewSetupPage> {
       return;
     }
 
-    // Start the interview session
-    final repository = ref.read(interviewRepositoryProvider);
-    final session = await repository.startInterviewSession(
-      _selectedRole!,
-      _selectedDifficulty,
-    );
+    final sessionToken = await ref.read(ensureSessionProvider.future);
+    final resumeId = ref.read(currentResumeIdProvider);
 
-    // Update state
-    ref.read(currentInterviewSessionProvider.notifier).state = session;
-    ref.read(currentQuestionIndexProvider.notifier).state = 0;
+    if (resumeId == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please analyze your resume first')),
+      );
+      return;
+    }
 
-    if (mounted) {
-      context.push('/interview/live');
+    try {
+      final repository = ref.read(interviewRepositoryProvider);
+
+      final session = await repository.startInterviewSession(
+        sessionToken: sessionToken,
+        resumeId: resumeId,
+        role: _selectedRole!,
+        difficulty: _selectedDifficulty,
+      );
+
+      ref.read(currentInterviewSessionProvider.notifier).state = session;
+      ref.read(currentQuestionIndexProvider.notifier).state = 0;
+
+      if (mounted) {
+        context.push('/interview/live');
+      }
+    } catch (e) {
+      debugPrint("Interview start error: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to start interview')),
+      );
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
