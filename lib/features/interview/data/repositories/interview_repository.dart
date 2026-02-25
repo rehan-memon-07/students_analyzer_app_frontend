@@ -14,6 +14,12 @@ abstract class InterviewRepository {
     required String previousQuestion,
     required String answer,
   });
+
+  Future<Map<String, dynamic>> endInterview({
+    required String sessionToken,
+    required List<Map<String, String>> conversation,
+    required String role,
+  });
 }
 
 class ApiInterviewRepository implements InterviewRepository {
@@ -48,15 +54,31 @@ class ApiInterviewRepository implements InterviewRepository {
     );
 
     final json = _normalize(response.data);
-
     final firstQuestion = json["firstQuestion"];
+
+    // ✅ Difficulty-based total questions
+    int total;
+
+    switch (difficulty) {
+      case 'Entry':
+        total = 7;
+        break;
+      case 'Mid':
+        total = 10;
+        break;
+      case 'Senior':
+        total = 12;
+        break;
+      default:
+        total = 7;
+    }
 
     return InterviewSession(
       sessionId: json["sessionId"],
       jobRole: role,
       difficulty: difficulty,
       startedAt: DateTime.now(),
-      totalQuestions: 5,
+      totalQuestions: total,
       currentQuestionIndex: 0,
       questions: [
         InterviewQuestion(
@@ -64,7 +86,7 @@ class ApiInterviewRepository implements InterviewRepository {
           text: firstQuestion,
           userAnswer: null,
           answered: false,
-        )
+        ),
       ],
       status: "active",
     );
@@ -84,7 +106,69 @@ class ApiInterviewRepository implements InterviewRepository {
     );
 
     final json = _normalize(response.data);
-
     return json["nextQuestion"];
+  }
+
+  @override
+  Future<Map<String, dynamic>> endInterview({
+    required String sessionToken,
+    required List<Map<String, String>> conversation,
+    required String role,
+  }) async {
+    final response = await _dio.post(
+      '/mock-interview/end',
+      data: {
+        "sessionToken": sessionToken,
+        "conversation": conversation,
+        "role": role,
+      },
+    );
+
+    final json = _normalize(response.data);
+    final evaluationString = json["evaluation"];
+
+    Map<String, dynamic> evaluationJson;
+
+    try {
+      // ✅ Primary attempt
+      evaluationJson = jsonDecode(evaluationString);
+    } catch (_) {
+      // 🔥 Fallback: Extract JSON block
+      final start = evaluationString.indexOf("{");
+      final end = evaluationString.lastIndexOf("}");
+
+      if (start != -1 && end != -1 && end > start) {
+        final extracted =
+        evaluationString.substring(start, end + 1);
+
+        try {
+          evaluationJson = jsonDecode(extracted);
+        } catch (_) {
+          evaluationJson = _fallbackEvaluation();
+        }
+      } else {
+        evaluationJson = _fallbackEvaluation();
+      }
+    }
+
+    return {
+      "status": json["status"],
+      "evaluation": evaluationJson,
+    };
+  }
+
+  Map<String, dynamic> _fallbackEvaluation() {
+    return {
+      "overallScore": 0,
+      "technicalDepthScore": 0,
+      "communicationScore": 0,
+      "problemSolvingScore": 0,
+      "confidenceScore": 0,
+      "strengths": [],
+      "weaknesses": [],
+      "hireDecision": "Evaluation Failed",
+      "finalVerdict":
+      "We were unable to generate structured evaluation. Please try again."
+    };
   }
 }

@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:student_analyzer_app/core/theme/app_theme.dart';
 import 'package:student_analyzer_app/core/utils/responsive_helper.dart';
 import 'package:student_analyzer_app/features/interview/presentation/providers/interview_provider.dart';
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 
 import '../../../resume/presentation/providers/resume_provider.dart';
 import '../../../session/session_provider.dart';
@@ -59,6 +61,50 @@ class _InterviewSetupPageState extends ConsumerState<InterviewSetupPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Failed to start interview')),
       );
+    }
+  }
+
+  Future<void> _handleUploadResume() async {
+    try {
+      // 1️⃣ Pick File
+      final result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf'],
+      );
+
+      if (result == null || result.files.single.path == null) {
+        return;
+      }
+
+      final file = File(result.files.single.path!);
+
+      // 2️⃣ Get session token
+      final sessionToken = await ref.read(ensureSessionProvider.future);
+
+      // 3️⃣ Call repository
+      final repository = ref.read(resumeRepositoryProvider);
+
+      final resumeId = await repository.uploadResume(
+        sessionToken: sessionToken,
+        file: file,
+      );
+
+      // 4️⃣ Save resumeId
+      ref.read(currentResumeIdProvider.notifier).state = resumeId;
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Resume uploaded successfully')),
+        );
+      }
+    } catch (e) {
+      debugPrint("Resume upload error: $e");
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to upload resume')),
+        );
+      }
     }
   }
 
@@ -254,6 +300,18 @@ class _InterviewSetupPageState extends ConsumerState<InterviewSetupPage> {
                 ),
                 SizedBox(
                   height: ResponsiveHelper.getResponsiveSpacing(context, 40),
+                ),
+                // Upload Resume Button
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    icon: const Icon(Icons.upload_file),
+                    label: const Text('Upload Resume'),
+                    onPressed: _handleUploadResume,
+                  ),
+                ),
+                SizedBox(
+                  height: ResponsiveHelper.getResponsiveSpacing(context, 16),
                 ),
                 // Start Button
                 SizedBox(

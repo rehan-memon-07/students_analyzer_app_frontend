@@ -150,6 +150,9 @@ class _ResumeUploadPageState extends ConsumerState<ResumeUploadPage>
         resumeId: resumeId,
       );
 
+      // 🔥 store resumeId here
+      ref.read(currentResumeIdProvider.notifier).state = resumeId;
+
       if (!mounted) return;
 
       // ✅ PASS ANALYSIS OBJECT
